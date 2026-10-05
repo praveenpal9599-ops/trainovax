@@ -1,0 +1,108 @@
+services:
+
+  mysql:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-trainovax}
+      MYSQL_USER: ${MYSQL_USER:-trainovax}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - trainovax_mysql:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p$${MYSQL_ROOT_PASSWORD} --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+      start_period: 20s
+    networks:
+      - trainovax
+
+  migrate:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    restart: "no"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      DB_NAME: ${MYSQL_DATABASE:-trainovax}
+      DB_CONNECTION_LIMIT: 10
+      JWT_SECRET: ${JWT_SECRET}
+    command: ["node", "database/migrate.js"]
+    networks:
+      - trainovax
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    restart: unless-stopped
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      CORS_ORIGIN: ${APP_URL:-https://trainovax.in}
+      API_PUBLIC_URL: ${APP_URL:-https://trainovax.in}
+      APP_URL: ${APP_URL:-https://trainovax.in}
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: ${MYSQL_USER:-trainovax}
+      DB_PASSWORD: ${MYSQL_PASSWORD}
+      DB_NAME: ${MYSQL_DATABASE:-trainovax}
+      DB_CONNECTION_LIMIT: 10
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRES_IN: 1d
+      JWT_REMEMBER_EXPIRES_IN: 30d
+      BCRYPT_ROUNDS: 10
+      RATE_LIMIT_WINDOW_MIN: 15
+      RATE_LIMIT_MAX: 1000
+      AUTH_RATE_LIMIT_MAX: 30
+      UPLOAD_MAX_MB: 5
+    volumes:
+      - trainovax_uploads:/app/server/uploads
+    expose:
+      - "5000"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:5000/api/health >/dev/null || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    networks:
+      - trainovax
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    restart: unless-stopped
+    depends_on:
+      backend:
+        condition: service_healthy
+    expose:
+      - "80"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1/ >/dev/null || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 5s
+    networks:
+      - trainovax
+
+networks:
+  trainovax:
+
+volumes:
+  trainovax_mysql:
+  trainovax_uploads:
