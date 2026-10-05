@@ -3,11 +3,11 @@ services:
   mysql:
     image: mysql:8.0
     restart: unless-stopped
+    env_file:
+      - .env
     environment:
-      MYSQL_DATABASE: ${MYSQL_DATABASE:-trainovax}
-      MYSQL_USER: ${MYSQL_USER:-trainovax}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: trainovax
+      MYSQL_USER: trainovax
     volumes:
       - trainovax_mysql:/var/lib/mysql
     healthcheck:
