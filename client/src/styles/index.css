@@ -1,0 +1,6 @@
+/* Global stylesheet entry — imported once in main.jsx.
+   Component styles live next to each component (e.g. StatCard.css). */
+@import './tokens.css';
+@import './base.css';
+@import './layout.css';
+@import './mui-overrides.css';

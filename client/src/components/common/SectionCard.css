@@ -1,0 +1,18 @@
+.section-card { height: 100%; display: flex; flex-direction: column; min-width: 0; }
+
+.section-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5) var(--space-2);
+}
+.section-card__header--flush { padding-bottom: var(--space-3); }
+.section-card__heading { min-width: 0; }
+.section-card__title { font-size: var(--font-size-base); font-weight: 600; }
+.section-card__subtitle { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+.section-card__action { flex-shrink: 0; }
+
+.section-card__body { flex: 1; padding: var(--space-1) var(--space-5) var(--space-5); min-width: 0; }
+.section-card__body--no-header { padding-top: var(--space-5); }
+.section-card__body--flush { padding: 0; }

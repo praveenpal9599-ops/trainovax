@@ -1,0 +1,30 @@
+/* Messages page: conversation list + chat thread (pages/shared/MessagesPage.jsx)
+   Split vs single-pane is decided in JS (useMediaQuery) → .messages--split / .messages--narrow */
+.messages {
+  display: flex;
+  height: calc(100vh - 210px);
+  min-height: 440px;
+  overflow: hidden;
+}
+.messages--split { height: calc(100vh - 220px); }
+.messages--thread { height: calc(100vh - 150px); }
+
+/* Left pane */
+.messages__side { width: 100%; flex-shrink: 0; }
+.messages--split .messages__side { width: 320px; border-right: 1px solid var(--color-border); }
+.messages__main { flex: 1; min-width: 0; }
+.messages__placeholder { display: grid; place-items: center; height: 100%; }
+
+.messages__list { display: flex; flex-direction: column; height: 100%; }
+.messages__search { padding: var(--space-4); border-bottom: 1px solid var(--color-border); }
+.messages__convos.MuiList-root { flex: 1; overflow-y: auto; padding: var(--space-2); }
+.messages__skeleton { margin-inline: var(--space-2); }
+
+/* Conversation row */
+.messages__convo.MuiListItemButton-root { gap: var(--space-3); padding-block: 10px; margin-bottom: var(--space-1); }
+.messages__convo-top { display: flex; justify-content: space-between; gap: var(--space-2); }
+.messages__convo-name { font-size: var(--font-size-md); font-weight: 600; }
+.messages__convo-time { flex-shrink: 0; font-size: var(--font-size-sm); color: var(--color-text-muted); }
+.messages__convo-preview { display: block; font-size: var(--font-size-sm); color: var(--color-text-muted); }
+.messages__convo--unread .messages__convo-name { font-weight: 700; }
+.messages__convo--unread .messages__convo-preview { font-weight: 600; color: var(--color-text); }

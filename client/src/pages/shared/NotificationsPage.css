@@ -1,0 +1,46 @@
+/* Notifications page + super-admin announcement panel (pages/shared/NotificationsPage.jsx) */
+
+/* ---------- Broadcast panel ---------- */
+.notifications__broadcast {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+@container content (min-width: 900px) {
+  .notifications__broadcast { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.notifications__alert { margin-bottom: var(--space-4); }
+.notifications__form { margin-top: var(--space-2); }
+.notifications__audience { display: flex; gap: var(--space-3); }
+.notifications__history-item { padding: 10px 0; border-bottom: 1px solid var(--color-border); }
+.notifications__history-title { font-size: var(--font-size-md); font-weight: 600; }
+.notifications__history-meta { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+
+/* ---------- Notification list ---------- */
+.notifications__card { overflow: hidden; }
+.notifications__tabs.MuiTabs-root { padding-inline: var(--space-4); border-bottom: 1px solid var(--color-border); }
+.notifications__loading { padding: var(--space-4); }
+
+.notifications__item.MuiListItemButton-root {
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding-block: 14px;
+  border-radius: 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.notifications__item--unread.MuiListItemButton-root:not(:hover) { background: rgba(21, 101, 192, 0.035); }
+.notifications__icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+.notifications__title { font-size: var(--font-size-md); font-weight: 500; }
+.notifications__item--unread .notifications__title { font-weight: 700; }
+.notifications__body { font-size: var(--font-size-md); color: var(--color-text-muted); }
+.notifications__time { font-size: var(--font-size-sm); color: var(--color-text-disabled); }
+.notifications__actions { display: flex; }
+.notifications__pager { display: flex; justify-content: center; padding: var(--space-4) 0; }

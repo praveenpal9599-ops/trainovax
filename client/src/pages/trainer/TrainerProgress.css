@@ -1,0 +1,29 @@
+/* Trainer app progress page (pages/trainer/TrainerProgress.jsx) */
+
+/* Horizontally scrolling client picker that bleeds to the screen edges */
+.trainer-progress__clients {
+  display: flex;
+  gap: var(--space-3);
+  overflow-x: auto;
+  margin: 0 calc(-1 * var(--space-4)) var(--space-4);
+  padding: 0 var(--space-4) var(--space-2);
+}
+.trainer-progress__client.MuiButtonBase-root {
+  flex-shrink: 0;
+  flex-direction: column;
+  min-width: 64px;
+  padding: var(--space-1);
+  border-radius: var(--radius-lg);
+}
+.trainer-progress__avatar--active { outline: 3px solid var(--color-primary); outline-offset: 2px; }
+.trainer-progress__name {
+  max-width: 100%;
+  margin-top: 6px;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.trainer-progress__name--active { font-weight: 800; color: var(--color-primary); }

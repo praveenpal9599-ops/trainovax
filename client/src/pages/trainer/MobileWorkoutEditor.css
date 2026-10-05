@@ -1,0 +1,88 @@
+/* Trainer app workout plan editor (pages/trainer/MobileWorkoutEditor.jsx).
+   The save bar uses .app-actionbar from layouts/MobileAppLayout.css. */
+
+/* Leave room for the fixed save bar */
+.mobile-workout-editor { padding-bottom: 80px; }
+.mobile-workout-editor__alert.MuiAlert-root { margin-bottom: var(--space-4); }
+
+/* ---------- Plan details card ---------- */
+.mobile-workout-editor__pair {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.mobile-workout-editor__pair--top { align-items: flex-start; }
+.mobile-workout-editor__status { flex-shrink: 0; }
+
+.mobile-workout-editor__heading {
+  display: block;
+  margin: var(--space-6) 0 var(--space-2);
+  font-weight: 800;
+}
+
+/* ---------- Weekday cards ---------- */
+.mobile-workout-editor__days {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.mobile-workout-editor__day { overflow: hidden; background: #f1f4f8; }
+.mobile-workout-editor__day--on { background: #fff; border-color: var(--color-primary-light); }
+.mobile-workout-editor__day-head {
+  display: flex;
+  align-items: center;
+  padding: 6px var(--space-2);
+}
+.mobile-workout-editor__day-name { font-size: 17px; font-weight: 700; }
+.mobile-workout-editor__day-meta { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+.mobile-workout-editor__day-meta--rest { color: var(--color-text-disabled); }
+.mobile-workout-editor__day-body { padding: 0 var(--space-3) var(--space-3); }
+.mobile-workout-editor__focus { margin-bottom: 10px; }
+.mobile-workout-editor__custom.MuiButton-root { margin-top: var(--space-2); background: var(--color-bg); }
+
+/* Flexible (non-weekday) day */
+.mobile-workout-editor__extra { padding: var(--space-3); }
+.mobile-workout-editor__extra-name { font-size: var(--font-size-base); font-weight: 700; }
+
+/* ---------- One exercise inside a day ---------- */
+.mobile-workout-editor__exercise {
+  margin-bottom: var(--space-2);
+  padding: var(--space-3);
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+.mobile-workout-editor__exercise-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mobile-workout-editor__exercise-name { font-size: var(--font-size-md); font-weight: 700; }
+.mobile-workout-editor__exercise-meta { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+.mobile-workout-editor__fields {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+.mobile-workout-editor__num input { text-align: center; }
+.mobile-workout-editor__unit .MuiTypography-root { font-size: 11px; }
+.mobile-workout-editor__note { margin-top: var(--space-2); }
+.mobile-workout-editor__note .MuiInputBase-root { font-size: 13px; }
+
+.mobile-workout-editor__notes { margin-top: var(--space-4); }
+
+/* ---------- Save bar summary ---------- */
+.mobile-workout-editor__bar { gap: var(--space-3); }
+.mobile-workout-editor__summary-text { font-size: var(--font-size-md); font-weight: 700; }
+.mobile-workout-editor__week {
+  display: flex;
+  gap: var(--space-1);
+  margin-top: 2px;
+}
+.mobile-workout-editor__week-chip.MuiChip-root {
+  height: 18px;
+  min-width: 18px;
+  font-size: 10px;
+}
+.mobile-workout-editor__week-chip .MuiChip-label { padding: 0 var(--space-1); }

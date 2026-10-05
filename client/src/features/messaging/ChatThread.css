@@ -1,0 +1,53 @@
+/* One chat conversation (features/messaging/ChatThread.jsx) — used in MessagesPage and ClientProfilePage */
+.chat { display: flex; flex-direction: column; height: var(--chat-height, 100%); min-height: 0; }
+
+/* Header: back button, avatar, name */
+.chat__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+.chat__name { font-size: var(--font-size-md); font-weight: 600; line-height: 1.57; }
+.chat__subtitle { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+
+/* Scrollable message list */
+.chat__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-4) var(--space-3);
+  background: var(--color-surface-muted);
+}
+@container content (min-width: 600px) { .chat__body { padding-inline: var(--space-6); } }
+.chat__loading { display: grid; place-items: center; height: 100%; }
+.chat__day { text-align: center; margin: var(--space-3) 0; }
+.chat__day-chip.MuiChip-root { background: #e8eef6; }
+
+/* Bubbles */
+.chat__row { display: flex; justify-content: flex-start; margin-bottom: var(--space-2); }
+.chat__row--mine { justify-content: flex-end; }
+.chat__bubble { max-width: 78%; padding: var(--space-2) 14px; border-radius: 20px; }
+.chat__bubble--theirs {
+  border-bottom-left-radius: 4px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+.chat__bubble--mine { border-bottom-right-radius: 4px; background: var(--color-primary); color: #fff; }
+.chat__text { font-size: var(--font-size-md); white-space: pre-wrap; word-break: break-word; }
+.chat__time { display: block; margin-top: 2px; font-size: 10.5px; text-align: right; opacity: 0.7; }
+
+/* Attachments */
+.chat__image { display: block; max-width: 220px; border-radius: 12px; }
+.chat__image--captioned { margin-bottom: 6px; }
+.chat__file { display: flex; align-items: center; gap: var(--space-1); }
+.chat__file--captioned { margin-bottom: var(--space-1); }
+
+/* Composer */
+.chat__composer { padding: var(--space-3); border-top: 1px solid var(--color-border); background: #fff; }
+.chat__file-chip.MuiChip-root { margin-bottom: var(--space-2); }
+.chat__composer-row { display: flex; align-items: flex-end; gap: var(--space-2); }
+.chat__send.MuiIconButton-root { background: var(--color-primary); color: #fff; }
+.chat__send.MuiIconButton-root:hover { background: var(--color-primary-dark); }
+.chat__send.MuiIconButton-root.Mui-disabled { background: var(--color-border); color: rgba(0, 0, 0, 0.26); }

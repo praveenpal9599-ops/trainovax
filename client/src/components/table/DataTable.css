@@ -1,0 +1,47 @@
+/* Data table (components/table/DataTable.jsx) */
+.data-table { overflow: hidden; }
+.data-table__table { min-width: 560px; }
+.data-table__actions-col { width: 56px; }
+.data-table__empty { border-bottom: 0 !important; }
+.data-table__row--clickable { cursor: pointer; }
+.data-table__row:last-child td { border-bottom: 0; }
+.data-table__pagination { border-top: 1px solid var(--color-border); }
+.data-table__menu { min-width: 200px; }
+
+/* Columns hidden when the content area is narrow (column option `hideBelow`) */
+.data-table__cell--hide-below-sm,
+.data-table__cell--hide-below-md,
+.data-table__cell--hide-below-lg { display: none; }
+@container content (min-width: 600px)  { .data-table__cell--hide-below-sm { display: table-cell; } }
+@container content (min-width: 900px)  { .data-table__cell--hide-below-md { display: table-cell; } }
+@container content (min-width: 1200px) { .data-table__cell--hide-below-lg { display: table-cell; } }
+
+/* Table toolbar (components/table/TableToolbar.jsx) */
+.table-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+.table-toolbar__search { width: 100%; }
+.table-toolbar__filters { display: flex; flex-wrap: wrap; gap: var(--space-3); flex: 1; }
+.table-toolbar__filters > * { min-width: 150px; }
+.table-toolbar__actions { display: flex; gap: var(--space-2); flex-shrink: 0; }
+.table-toolbar__export { border-color: var(--color-border); }
+@container content (min-width: 900px) {
+  .table-toolbar { flex-direction: row; align-items: center; }
+  .table-toolbar__search { max-width: 320px; }
+}
+.table-toolbar--bulk {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 10px var(--space-4);
+  background: var(--color-primary-tint);
+}
+.table-toolbar__count { margin-right: auto; font-size: var(--font-size-md); font-weight: 600; color: var(--color-primary); }
+
+/* Filter select (components/table/FilterSelect.jsx) */
+.filter-select { width: 100%; }
+@container content (min-width: 600px) { .filter-select { width: 170px; } }

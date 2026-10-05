@@ -1,0 +1,18 @@
+/* "Upcoming tasks" dashboard widget (features/clients/TasksWidget.jsx) */
+.tasks-widget__list { display: flex; flex-direction: column; gap: var(--space-1); margin: 0; padding: 0; list-style: none; }
+.tasks-widget__task { display: flex; align-items: center; gap: var(--space-2); padding: 6px 0; }
+.tasks-widget__title { font-size: var(--font-size-md); font-weight: 500; }
+.tasks-widget__due { font-size: var(--font-size-sm); }
+.tasks-widget__due--muted { color: var(--color-text-muted); }
+.tasks-widget__due--today { color: var(--color-warning-dark); }
+.tasks-widget__due--overdue { color: var(--color-error); }
+
+/* On wide screens the delete button appears on row hover / keyboard focus */
+@container content (min-width: 900px) {
+  .tasks-widget__delete { opacity: 0; }
+  .tasks-widget__task:hover .tasks-widget__delete,
+  .tasks-widget__task:focus-within .tasks-widget__delete { opacity: 1; }
+}
+
+/* New-task dialog */
+.tasks-widget__form-row { display: flex; gap: var(--space-4); }

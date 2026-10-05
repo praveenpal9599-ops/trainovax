@@ -1,0 +1,16 @@
+/* Client "My profile" screen (pages/client/MyProfilePage.jsx) — phone-width app layout */
+
+.my-profile__hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin-bottom: var(--space-5);
+  padding: var(--space-6);
+}
+.my-profile__avatar { align-self: flex-start; cursor: pointer; }
+.my-profile__meta { font-size: var(--font-size-base); color: var(--color-text-muted); }
+
+.my-profile__cards { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-5); }
+
+/* Edit dialog */
+.my-profile__form-note { display: block; margin-top: var(--space-4); }

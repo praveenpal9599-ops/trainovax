@@ -1,0 +1,20 @@
+.user-avatar {
+  width: var(--avatar-size, 36px);
+  height: var(--avatar-size, 36px);
+  font-size: calc(var(--avatar-size, 36px) * 0.38);
+  font-weight: 600;
+  color: #fff;
+  flex-shrink: 0;
+}
+.user-avatar--c0 { background: #1565c0; }
+.user-avatar--c1 { background: #00897b; }
+.user-avatar--c2 { background: #6a1b9a; }
+.user-avatar--c3 { background: #ef6c00; }
+.user-avatar--c4 { background: #2e7d32; }
+.user-avatar--c5 { background: #ad1457; }
+.user-avatar--c6 { background: #0277bd; }
+.user-avatar--c7 { background: #5d4037; }
+
+/* Optional ring (used on coloured headers and selected states) */
+.user-avatar--ring { box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); }
+.user-avatar--selected { outline: 3px solid var(--color-primary); outline-offset: 2px; }

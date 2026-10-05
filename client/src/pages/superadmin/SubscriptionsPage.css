@@ -1,0 +1,37 @@
+/* Subscriptions page — plans & pricing tab (pages/superadmin/SubscriptionsPage.jsx) */
+.subs-tabs { margin-bottom: var(--space-5); }
+
+/* Plan cards: stacked, three per row from md */
+.subs-plans {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+}
+@container content (min-width: 900px) {
+  .subs-plans { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.subs-plan { position: relative; height: 100%; padding: var(--space-6); }
+.subs-plan__head { display: flex; justify-content: space-between; }
+.subs-plan__name { font-size: 1.1rem; font-weight: 700; line-height: 1.6; }
+.subs-plan__tools { display: flex; }
+.subs-plan__desc { font-size: var(--font-size-md); color: var(--color-text-muted); margin-bottom: var(--space-4); }
+.subs-plan__price { font-size: 32px; font-weight: 800; line-height: 1.5; }
+.subs-plan__per { font-size: var(--font-size-base); font-weight: 400; color: var(--color-text-muted); }
+
+.subs-plan__features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.subs-plan__feature { display: flex; align-items: center; gap: var(--space-2); font-size: var(--font-size-md); }
+
+.subs-plan__foot {
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--font-size-md);
+}

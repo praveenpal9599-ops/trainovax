@@ -1,0 +1,77 @@
+/* Trainer app client profile (pages/trainer/TrainerClientDetail.jsx) */
+
+/* ---------- Profile card ---------- */
+.trainer-client-detail__profile {
+  margin-top: calc(-1 * var(--space-3));
+  padding: var(--space-4);
+}
+.trainer-client-detail__head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.trainer-client-detail__photo { position: relative; }
+.trainer-client-detail__photo-btn.MuiIconButton-root {
+  position: absolute;
+  right: -6px;
+  bottom: -6px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+}
+.trainer-client-detail__photo-btn.MuiIconButton-root:hover { background: #fff; }
+.trainer-client-detail__photo-icon.MuiSvgIcon-root { font-size: 14px; }
+.trainer-client-detail__name { font-size: 20px; font-weight: 800; line-height: 1.2; }
+.trainer-client-detail__sub { font-size: var(--font-size-md); color: var(--color-text-muted); }
+.trainer-client-detail__chips {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+/* Quick-action row */
+.trainer-client-detail__actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+.trainer-client-detail__action.MuiButtonBase-root {
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 56px;
+  padding: 6px;
+  border-radius: var(--radius-md);
+}
+.trainer-client-detail__action-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+}
+.trainer-client-detail__action-label { font-size: var(--font-size-sm); font-weight: 600; }
+
+/* ---------- Stat tiles ---------- */
+.trainer-client-detail__tiles {
+  gap: 10px;
+  margin-top: var(--space-3);
+}
+.trainer-client-detail__tile { height: 100%; padding: var(--space-3); }
+.trainer-client-detail__tile-label { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-text-muted); }
+.trainer-client-detail__tile-value { font-size: 19px; font-weight: 800; line-height: 1.25; }
+.trainer-client-detail__tile-sub { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-text-muted); }
+.trainer-client-detail__tile-sub--success { color: var(--color-success); }
+.trainer-client-detail__tile-sub--warning { color: var(--color-warning-dark); }
+
+/* ---------- Tabs ---------- */
+.trainer-client-detail__tabs.MuiTabs-root {
+  margin: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.trainer-client-detail__tab.MuiTab-root {
+  min-width: 0;
+  padding-inline: var(--space-3);
+}

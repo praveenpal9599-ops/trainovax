@@ -1,0 +1,9 @@
+/* Tonal status chip (components/common/StatusChip.jsx) */
+.status-chip { font-weight: 600; }
+.status-chip--default   { background: #eef1f5; color: var(--color-text-muted); font-weight: 500; }
+.status-chip--primary   { background: var(--color-primary-soft); color: var(--color-primary-dark); }
+.status-chip--secondary { background: var(--color-secondary-soft); color: var(--color-primary); }
+.status-chip--success   { background: var(--color-success-soft); color: var(--color-success-dark); }
+.status-chip--warning   { background: var(--color-warning-soft); color: var(--color-warning-dark); }
+.status-chip--error     { background: var(--color-error-soft); color: var(--color-error-dark); }
+.status-chip--info      { background: var(--color-info-soft); color: var(--color-info-dark); }

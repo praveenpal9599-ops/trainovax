@@ -1,0 +1,107 @@
+/* Workout & diet plan editors (pages/shared/WorkoutEditorPage.jsx, pages/shared/DietEditorPage.jsx)
+   Desktop pages inside DashboardLayout — responsive via the `content` container. */
+
+.plan-editor__more.MuiButton-root { border-color: var(--color-border); }
+.plan-editor__alert { margin-bottom: var(--space-4); }
+
+/* ---------- Stepper ---------- */
+.plan-editor__stepper {
+  margin-bottom: var(--space-6);
+  padding: var(--space-4) var(--space-2);
+}
+@container content (min-width: 600px) {
+  .plan-editor__stepper { padding: var(--space-4) var(--space-6); }
+}
+
+/* ---------- Step 1: plan details form (12-column grid) ---------- */
+.plan-editor__form {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}
+.plan-editor__col { grid-column: span 12; min-width: 0; }
+.plan-editor__col--xs-6 { grid-column: span 6; }
+@container content (min-width: 600px) {
+  .plan-editor__col--sm-4 { grid-column: span 4; }
+  .plan-editor__col--sm-6 { grid-column: span 6; }
+  .plan-editor__col--sm-8 { grid-column: span 8; }
+}
+
+/* "Start from a template" side card */
+.plan-editor__template-select { margin-top: var(--space-2); }
+.plan-editor__templates {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+.plan-editor__template {
+  display: block;
+  width: 100%;
+  padding: var(--space-3);
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.plan-editor__template:hover { border-color: var(--color-primary); }
+.plan-editor__template:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+.plan-editor__template-name { display: block; font-size: var(--font-size-md); font-weight: 600; }
+.plan-editor__template-meta { display: block; font-size: var(--font-size-sm); color: var(--color-text-muted); }
+
+/* ---------- Step 2: builder ---------- */
+.plan-editor__chips { margin-bottom: var(--space-4); }
+
+/* Diet: nutrition totals stay visible while scrolling the meals on wide screens */
+.plan-editor__sticky-summary { z-index: 5; margin-bottom: var(--space-4); }
+@container content (min-width: 900px) {
+  .plan-editor__sticky-summary { position: sticky; top: 72px; }
+}
+
+/* ---------- Step 3: review ---------- */
+.plan-editor__review { margin-top: var(--space-6); }
+
+.plan-editor__summary {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: var(--space-2) 0 0;
+}
+.plan-editor__summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: var(--font-size-md);
+}
+.plan-editor__summary-row dt { color: var(--color-text-muted); }
+.plan-editor__summary-row dd { margin: 0; font-weight: 600; text-align: right; }
+.plan-editor__summary-save { margin-top: var(--space-6); }
+
+.plan-editor__review-list { list-style: none; margin: 0; padding: 0; }
+.plan-editor__review-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+  font-size: var(--font-size-md);
+}
+.plan-editor__review-row--compact { padding: 6px 0; }
+.plan-editor__review-row + .plan-editor__review-row { border-top: 1px solid var(--color-border); }
+.plan-editor__review-name { flex: 1; min-width: 0; font-weight: 600; }
+.plan-editor__review-detail { color: var(--color-text-muted); text-align: right; }
+.plan-editor__review-food { flex: 1; min-width: 0; }
+.plan-editor__review-qty { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+.plan-editor__review-kcal { font-weight: 600; white-space: nowrap; }
+
+.plan-editor__empty {
+  padding: var(--space-8);
+  text-align: center;
+}
+
+/* ---------- Back / Continue ---------- */
+.plan-editor__nav { margin-top: var(--space-6); }

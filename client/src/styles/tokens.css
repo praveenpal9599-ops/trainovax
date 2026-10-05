@@ -1,0 +1,95 @@
+/* =====================================================================
+   Design tokens — change a value here and it updates everywhere.
+   ===================================================================== */
+:root {
+  /* Brand */
+  --color-primary: #1565c0;
+  --color-primary-dark: #003c8f;
+  --color-primary-light: #5e92f3;
+  --color-primary-soft: #e3f0fd;      /* tinted backgrounds (active nav, icon tiles) */
+  --color-primary-tint: #f2f7fd;      /* very light hover / highlight */
+  --color-secondary: #42a5f5;
+  --color-secondary-soft: #e8f4fe;
+
+  /* Surfaces & text */
+  --color-bg: #f5f7fa;
+  --color-bg-app-frame: #e6ebf2;      /* area around the phone-width app on desktop */
+  --color-surface: #ffffff;
+  --color-surface-muted: #f8fafc;
+  --color-surface-sunken: #eef2f7;
+  --color-text: #172b4d;
+  --color-text-muted: #5e6c84;
+  --color-text-disabled: #97a0af;
+  --color-border: #e3e8ef;
+
+  /* Status */
+  --color-success: #2e7d32;
+  --color-success-dark: #1b5e20;
+  --color-success-soft: #edf7ee;
+  --color-warning: #ed6c02;
+  --color-warning-dark: #b45309;
+  --color-warning-soft: #fff4e5;
+  --color-error: #d32f2f;
+  --color-error-dark: #c62828;
+  --color-error-soft: #fdecea;
+  --color-info: #0288d1;
+  --color-info-dark: #01579b;
+  --color-info-soft: #e1f3fb;
+  --color-purple-soft: #f3e9f8;
+  --color-purple: #6a1b9a;
+  --color-water: #29b6f6;
+  --color-water-soft: #e1f5fe;
+
+  /* Chart series */
+  --chart-1: #1565c0;
+  --chart-2: #42a5f5;
+  --chart-3: #26a69a;
+  --chart-4: #ffa726;
+  --chart-5: #7e57c2;
+  --chart-6: #ef5350;
+
+  /* Typography */
+  --font-family: "Inter", "Roboto", "Helvetica", "Arial", sans-serif;
+  --font-size-xs: 0.6875rem;   /* 11px */
+  --font-size-sm: 0.75rem;     /* 12px — captions */
+  --font-size-md: 0.875rem;    /* 14px — body */
+  --font-size-base: 1rem;      /* 16px */
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.3rem;
+  --font-size-2xl: 1.75rem;    /* page titles */
+
+  /* Spacing scale (8px grid) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  /* Radius & elevation */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 2px rgba(23, 43, 77, 0.06);
+  --shadow-md: 0 4px 16px rgba(23, 43, 77, 0.08);
+  --shadow-lg: 0 12px 32px rgba(23, 43, 77, 0.12);
+
+  /* Layout */
+  --sidebar-width: 264px;
+  --sidebar-width-mini: 76px;
+  --topbar-height: 64px;
+  --app-max-width: 480px;       /* trainer / client app column */
+  --app-header-height: 60px;
+  --app-tabbar-height: 68px;
+}
+
+/* Trainer / Client app (WebView) uses slightly rounder, larger controls */
+.is-app {
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+}

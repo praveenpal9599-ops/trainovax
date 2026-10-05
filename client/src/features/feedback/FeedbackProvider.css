@@ -1,0 +1,12 @@
+/* Global snackbar + confirmation dialog (features/feedback/FeedbackProvider.jsx) */
+.feedback__snack { min-width: 280px; }
+.feedback__confirm-title.MuiDialogTitle-root { display: flex; align-items: center; gap: var(--space-3); }
+.feedback__danger-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-error-soft);
+}

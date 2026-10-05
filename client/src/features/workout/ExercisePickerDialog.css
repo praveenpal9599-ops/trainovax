@@ -1,0 +1,38 @@
+/* Exercise Master picker dialog (features/workout/ExercisePickerDialog.jsx)
+   The dialog renders in a portal (outside the page container), so the picker is its own
+   size container: filters stack on narrow dialogs and sit in one row when there is room. */
+.exercise-picker { container: exercise-picker / inline-size; }
+
+.exercise-picker__filters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+.exercise-picker__select { min-width: 160px; }
+
+.exercise-picker__picked { margin-bottom: var(--space-3); }
+
+.exercise-picker__list {
+  height: 400px;
+  overflow-y: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+.exercise-picker__skeleton { margin: 0 var(--space-4); }
+
+.MuiListItemButton-root.exercise-picker__item {
+  gap: var(--space-3);
+  border-radius: 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.exercise-picker__name { font-size: var(--font-size-md); font-weight: 600; }
+.exercise-picker__meta { display: block; font-size: var(--font-size-sm); color: var(--color-text-muted); }
+
+/* Category chip only when the dialog is wide enough */
+.MuiChip-root.exercise-picker__category { display: none; }
+
+@container exercise-picker (min-width: 480px) {
+  .exercise-picker__filters { flex-direction: row; }
+  .MuiChip-root.exercise-picker__category { display: flex; }
+}

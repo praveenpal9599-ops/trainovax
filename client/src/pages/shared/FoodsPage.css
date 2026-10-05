@@ -1,0 +1,8 @@
+/* Food / nutrition master page (pages/shared/FoodsPage.jsx) */
+.foods__name-cell { display: flex; align-items: center; gap: 10px; min-width: 180px; }
+.foods__name { font-size: var(--font-size-md); font-weight: 600; }
+.foods__serving { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+.foods__calories { font-size: var(--font-size-md); font-weight: 700; }
+.foods__macro { font-size: var(--font-size-md); }
+.foods__unit { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+.foods__allergens { font-size: var(--font-size-sm); }

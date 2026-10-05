@@ -1,0 +1,67 @@
+/* =====================================================================
+   Material UI component styling.
+   MUI injects its own base styles first (StyledEngineProvider injectFirst),
+   so the rules in this file win and can be edited here directly.
+   ===================================================================== */
+
+/* Buttons */
+.MuiButton-root { text-transform: none; font-weight: 600; border-radius: var(--radius-md); padding-inline: 16px; box-shadow: none; }
+.MuiButton-root:hover { box-shadow: none; }
+.MuiButton-sizeSmall { padding-inline: 10px; }
+.MuiButton-sizeLarge { min-height: 48px; }
+.is-app .MuiButton-root { min-height: 40px; }
+.is-app .MuiButton-sizeLarge { min-height: 50px; font-size: var(--font-size-base); }
+
+/* Inputs */
+.MuiOutlinedInput-root { border-radius: var(--radius-md); background: #fff; }
+.MuiInputLabel-asterisk, .MuiFormLabel-asterisk { color: var(--color-error); }
+
+/* Chips */
+.MuiChip-root { font-weight: 500; border-radius: var(--radius-sm); }
+.MuiChip-sizeSmall { height: 24px; }
+
+/* Dialogs */
+.MuiDialog-paper { border-radius: 14px; }
+.MuiDialogTitle-root { font-weight: 700; font-size: 1.15rem; padding: 20px 24px 12px; }
+.MuiDialogActions-root { padding: 12px 24px 20px; }
+.MuiDialog-paperFullScreen { border-radius: 0; }
+.is-app .MuiDialog-paperFullScreen { max-width: var(--app-max-width); margin: 0 auto; }
+
+/* Bottom sheet (app) */
+.is-app .MuiDrawer-paperAnchorBottom { max-width: var(--app-max-width); margin: 0 auto; border-radius: 20px 20px 0 0; }
+
+/* Tabs */
+.MuiTab-root { text-transform: none; font-weight: 600; min-height: 44px; }
+.MuiTabs-root { min-height: 44px; }
+.MuiTabs-indicator { height: 3px; border-radius: 3px; }
+
+/* Tooltips */
+.MuiTooltip-tooltip { font-size: var(--font-size-sm); background: var(--color-text); }
+.MuiTooltip-arrow { color: var(--color-text); }
+
+/* Progress bars */
+.MuiLinearProgress-root { border-radius: 6px; height: 8px; background: #e8eef6; }
+.MuiLinearProgress-bar { border-radius: 6px; }
+.progress--thin.MuiLinearProgress-root { height: 6px; }
+.progress--success .MuiLinearProgress-bar { background: var(--color-success); }
+.progress--warning .MuiLinearProgress-bar { background: var(--color-warning); }
+.progress--water .MuiLinearProgress-bar { background: var(--color-water); }
+
+/* Misc */
+.MuiAvatar-root { font-weight: 600; }
+.MuiAlert-root { border-radius: 10px; }
+.MuiMenu-paper { border-radius: var(--radius-lg); }
+.MuiListItemButton-root { border-radius: var(--radius-md); }
+.MuiToggleButton-root { text-transform: none; font-weight: 600; }
+.MuiToggleButtonGroup-root { background: #fff; }
+.MuiStepLabel-label { font-size: 13px; }
+
+/* Snackbar sits above the app tab bar */
+.is-app .MuiSnackbar-root { bottom: calc(var(--app-tabbar-height) + 20px) !important; }
+
+/* Coloured menu items (e.g. destructive "Delete" in row action menus) */
+.MuiMenuItem-root.menu-item--error { color: var(--color-error); }
+.MuiMenuItem-root.menu-item--success { color: var(--color-success); }
+.MuiMenuItem-root.menu-item--warning { color: var(--color-warning); }
+.MuiMenuItem-root.menu-item--primary { color: var(--color-primary); }
+.MuiMenuItem-root[class*="menu-item--"] .MuiListItemIcon-root { color: inherit; }

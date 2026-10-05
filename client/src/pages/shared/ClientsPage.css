@@ -1,0 +1,19 @@
+/* Clients list page (pages/shared/ClientsPage.jsx) */
+.clients-page__tabs { margin-bottom: var(--space-4); }
+
+/* "Client" column: avatar + name + contact */
+.clients-page__client { display: flex; align-items: center; gap: var(--space-3); min-width: 200px; }
+.clients-page__client-text { min-width: 0; }
+.clients-page__client-name { font-size: var(--font-size-md); font-weight: 600; }
+.clients-page__client-contact { display: block; font-size: var(--font-size-sm); color: var(--color-text-muted); }
+
+/* "Weight" column */
+.clients-page__weight { font-size: var(--font-size-md); font-weight: 600; }
+.clients-page__weight-change { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+.clients-page__weight-change--good { color: var(--color-success); }
+
+/* "Last update" column — warns when measurements are older than 14 days */
+.clients-page__last-update { display: flex; align-items: center; gap: var(--space-1); }
+.clients-page__stale-icon.MuiSvgIcon-root { font-size: 16px; color: var(--color-warning); }
+.clients-page__last-update-text { font-size: var(--font-size-md); color: var(--color-text); }
+.clients-page__last-update-text--stale { color: var(--color-warning-dark); }

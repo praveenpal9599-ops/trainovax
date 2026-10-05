@@ -1,0 +1,3 @@
+.form-dialog__title { padding-right: 56px; position: relative; }
+.form-dialog__close { position: absolute; right: 12px; top: 14px; }
+.form-dialog__content--no-actions { border-bottom: 0; }

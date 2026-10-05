@@ -1,0 +1,97 @@
+/* =====================================================================
+   Reusable layout patterns: cards, grids, forms, page sections.
+   ===================================================================== */
+
+/* ---------- Card ---------- */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+.card--padded { padding: var(--space-5); }
+.card--padded-sm { padding: var(--space-4); }
+.card--clickable {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: box-shadow 0.15s, border-color 0.15s, transform 0.05s;
+}
+.card--clickable:hover { border-color: #cbd6e4; box-shadow: var(--shadow-md); }
+.card--clickable:active { transform: scale(0.995); }
+.card--clickable:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+.card--muted { background: var(--color-surface-muted); }
+
+/* ---------- Grids ---------- */
+.grid { display: grid; gap: var(--space-4); }
+.grid--gap-sm { gap: var(--space-3); }
+.grid--gap-lg { gap: var(--space-6); }
+.grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+/* auto-fit grids adapt to the space available (no media queries needed) */
+.grid--auto-sm { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.grid--auto-md { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.grid--auto-lg { grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); }
+.span-full { grid-column: 1 / -1; }
+
+/* ---------- Forms ---------- */
+.form-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+.form-grid--2 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.form-grid--3 { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.form-actions { display: flex; justify-content: space-between; gap: var(--space-2); margin-top: var(--space-6); }
+.form-actions__end { display: flex; gap: var(--space-2); }
+.form-section { margin-bottom: var(--space-6); }
+.form-section__title { font-size: var(--font-size-md); font-weight: 600; margin-bottom: 2px; }
+.form-section__desc { font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-3); }
+
+/* ---------- Page ---------- */
+.page-section { margin-bottom: var(--space-6); }
+.divider { height: 1px; background: var(--color-border); border: 0; margin: var(--space-4) 0; }
+
+/* Two-column page layouts (main + side) that stack on narrow content */
+.split { display: grid; gap: var(--space-6); grid-template-columns: minmax(0, 1fr); }
+@container content (min-width: 1000px) {
+  .split--main-side { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+  .split--side-main { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
+  .split--halves { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .split--wide-narrow { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+}
+
+/* Error banner shown above page content */
+.error-state { margin-bottom: var(--space-4); }
+
+/* ---------- Icon tile: small tinted square holding an icon ---------- */
+.icon-tile {
+  --tile-size: 32px;
+  width: var(--tile-size);
+  height: var(--tile-size);
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-md);
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+.icon-tile .MuiSvgIcon-root { font-size: 18px; }
+.icon-tile--lg { --tile-size: 44px; border-radius: var(--radius-lg); }
+.icon-tile--lg .MuiSvgIcon-root { font-size: 22px; }
+.icon-tile--round { border-radius: 50%; }
+
+/* Tone modifiers — work on .icon-tile and anything else that uses color + tinted bg */
+.tone--primary   { color: var(--color-primary);   background: var(--color-primary-soft); }
+.tone--secondary { color: var(--color-secondary); background: var(--color-secondary-soft); }
+.tone--success   { color: var(--color-success);   background: var(--color-success-soft); }
+.tone--warning   { color: var(--color-warning);   background: var(--color-warning-soft); }
+.tone--error     { color: var(--color-error);     background: var(--color-error-soft); }
+.tone--info      { color: var(--color-info);      background: var(--color-info-soft); }
+.tone--purple    { color: var(--color-purple);    background: var(--color-purple-soft); }
+.tone--water     { color: var(--color-water);     background: var(--color-water-soft); }
+
+/* FormSwitch helper text sits under the label, aligned past the switch */
+.form-switch__help { margin: -4px 0 0 48px; }

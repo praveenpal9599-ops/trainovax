@@ -1,0 +1,20 @@
+/* Veg / non-veg marker (features/diet/VegDot.jsx) */
+.veg-dot {
+  --veg-dot-color: var(--color-error-dark);
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  display: inline-grid;
+  place-items: center;
+  border: 1.5px solid var(--veg-dot-color);
+  border-radius: 3px;
+}
+.veg-dot--veg { --veg-dot-color: var(--color-success); }
+.veg-dot--nonveg { --veg-dot-color: var(--color-error-dark); }
+
+.veg-dot__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--veg-dot-color);
+}

@@ -1,0 +1,21 @@
+/* KPI tile (components/common/StatCard.jsx) */
+.stat-card { padding: var(--space-4); height: 100%; }
+.stat-card__head { display: flex; align-items: center; gap: 10px; min-height: 32px; }
+.stat-card__label { font-size: var(--font-size-md); font-weight: 500; color: var(--color-text-muted); line-height: 1.25; }
+.stat-card__value {
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@container content (min-width: 900px) { .stat-card__value { font-size: 26px; } }
+.stat-card__foot { display: flex; align-items: center; gap: var(--space-1); margin-top: var(--space-1); min-width: 0; }
+.stat-card__delta { display: inline-flex; align-items: center; gap: 2px; font-size: var(--font-size-sm); font-weight: 700; }
+.stat-card__delta .MuiSvgIcon-root { font-size: 16px; }
+.stat-card__delta--good { color: var(--color-success); }
+.stat-card__delta--bad { color: var(--color-error); }
+.stat-card__hint { font-size: var(--font-size-sm); color: var(--color-text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

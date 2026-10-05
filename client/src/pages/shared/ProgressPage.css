@@ -1,0 +1,18 @@
+/* Trainer / admin progress tracking page (pages/shared/ProgressPage.jsx)
+   Narrow layout first; @container content rules put the picker on one row when there is room. */
+.progress-page__picker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+  padding: var(--space-4);
+}
+.progress-page__select { width: 100%; }
+.progress-page__option.MuiAutocomplete-option { gap: var(--space-3); }
+.progress-page__client { flex: 1; display: flex; align-items: center; gap: var(--space-3); min-width: 0; }
+.progress-page__client-name { font-size: var(--font-size-md); font-weight: 600; }
+
+@container content (min-width: 600px) {
+  .progress-page__picker { flex-direction: row; align-items: center; }
+  .progress-page__select { width: 360px; flex-shrink: 0; }
+}

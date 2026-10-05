@@ -1,0 +1,36 @@
+/* Exercise / food master: ExerciseThumb, ExerciseFormDialog, FoodFormDialog (features/masters/*.jsx) */
+
+/* ---------- ExerciseThumb: image or category-coloured icon tile (size via --thumb-size) ---------- */
+.exercise-thumb {
+  --thumb-color: #1565c0;
+  width: var(--thumb-size, 40px);
+  height: var(--thumb-size, 40px);
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  color: var(--thumb-color);
+  background: color-mix(in srgb, var(--thumb-color) 10%, transparent);
+}
+.exercise-thumb .MuiSvgIcon-root { font-size: calc(var(--thumb-size, 40px) * 0.5); }
+.exercise-thumb--image { display: block; object-fit: cover; background: none; }
+.exercise-thumb--strength    { --thumb-color: #1565c0; }
+.exercise-thumb--cardio      { --thumb-color: #ef6c00; }
+.exercise-thumb--mobility    { --thumb-color: #00897b; }
+.exercise-thumb--flexibility { --thumb-color: #6a1b9a; }
+.exercise-thumb--core        { --thumb-color: #0277bd; }
+.exercise-thumb--hiit        { --thumb-color: #c62828; }
+.exercise-thumb--functional  { --thumb-color: #2e7d32; }
+.exercise-thumb--yoga        { --thumb-color: #d81b60; }
+
+/* ---------- Form dialogs: 12-column grid (xs = phone, sm = ≥600px desktop; the phone app always uses xs) ---------- */
+.master-form__alert { margin-bottom: var(--space-4); }
+.master-form { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-4); }
+.master-form__cell { grid-column: span 12; min-width: 0; }
+.master-form__cell--xs-6 { grid-column: span 6; }
+@media (min-width: 600px) {
+  body:not(.is-app) .master-form__cell--sm-3 { grid-column: span 3; }
+  body:not(.is-app) .master-form__cell--sm-4 { grid-column: span 4; }
+  body:not(.is-app) .master-form__cell--sm-6 { grid-column: span 6; }
+  body:not(.is-app) .master-form__cell--sm-8 { grid-column: span 8; }
+}

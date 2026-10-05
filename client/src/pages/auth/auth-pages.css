@@ -1,0 +1,67 @@
+/* Auth pages: LoginPage, RegisterPage, ForgotPasswordPage, ResetPasswordPage (pages/auth/*.jsx) — render inside AuthLayout */
+
+/* ---------- Shared ---------- */
+.auth-page__fields { display: flex; flex-direction: column; gap: var(--space-4); }
+.auth-page__alert { margin-bottom: var(--space-4); }
+.auth-page__link.MuiLink-root { font-weight: 600; }
+.auth-page__footer-text { font-size: var(--font-size-md); color: var(--color-text-muted); }
+.auth-page__note {
+  font-size: var(--font-size-sm);
+  line-height: 1.66;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* ---------- LoginPage ---------- */
+.login__fields { gap: 18px; }
+.login__switch.MuiLink-root { font-weight: 700; }
+.login__demo { margin-top: var(--space-8); }
+.login__demo-divider { margin-bottom: var(--space-4); }
+.login__demo-label { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+.login__demo-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-2); }
+
+/* ---------- ForgotPasswordPage ---------- */
+.forgot__reset-link { word-break: break-all; }
+
+/* ---------- RegisterPage ---------- */
+.register__contact { display: grid; gap: var(--space-4); grid-template-columns: 1fr; }
+@media (min-width: 600px) { .register__contact { grid-template-columns: 7fr 5fr; } }
+
+.register__owner {
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.register__owner-hint {
+  display: block;
+  padding-bottom: var(--space-2);
+  font-size: var(--font-size-sm);
+  line-height: 1.66;
+  color: var(--color-text-muted);
+}
+
+.register__code-input { letter-spacing: 0.12em; font-weight: 700; }
+
+.register__about { line-height: 1; padding-top: var(--space-1); }
+.register__about-grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+/* Trainer-code lookup result */
+.register__trainer-found {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-success-soft);
+  border: 1px solid #c8e6c9;
+}
+.register__trainer-name { font-size: var(--font-size-md); font-weight: 700; }
+.register__trainer-meta { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+.register__trainer-missing {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-sm);
+  color: var(--color-error);
+}
+.register__trainer-missing .MuiSvgIcon-root { font-size: 16px; }

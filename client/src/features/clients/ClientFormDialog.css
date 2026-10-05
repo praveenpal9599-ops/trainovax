@@ -1,0 +1,58 @@
+/* Add / Edit client wizard (features/clients/ClientFormDialog.jsx)
+   The dialog is portalled to <body> (outside the `content` container),
+   so its breakpoints use viewport media queries, matching the JS `small` check. */
+.client-form__stepper { margin-bottom: var(--space-6); }
+.client-form__alert { margin-bottom: var(--space-4); }
+
+/* 12-column field grid: every field is full width on phones unless marked --half */
+.client-form__grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+.client-form__grid > * { grid-column: span 12; min-width: 0; }
+.client-form__grid > .client-form__col--half { grid-column: span 6; }
+@media (min-width: 600px) {
+  .client-form__grid > .client-form__col--sm-3 { grid-column: span 3; }
+  .client-form__grid > .client-form__col--sm-4 { grid-column: span 4; }
+  .client-form__grid > .client-form__col--sm-6 { grid-column: span 6; }
+  .client-form__grid > .client-form__col--sm-8 { grid-column: span 8; }
+}
+
+/* Read-only BMI box, same height as a small text field */
+.client-form__bmi {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+.client-form__bmi-label { font-size: var(--font-size-md); color: var(--color-text-muted); }
+.client-form__bmi-value { font-size: var(--font-size-base); font-weight: 700; }
+
+.client-form__password { margin-top: var(--space-2); max-width: 360px; }
+
+/* Review summary */
+.client-form__divider { margin: 0 0 var(--space-4); }
+.client-form__summary-title { font-size: var(--font-size-md); font-weight: 600; margin-bottom: 0.35em; }
+.client-form__summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+  margin: 0;
+}
+@media (min-width: 600px) {
+  .client-form__summary { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+.client-form__summary-item { min-width: 0; }
+.client-form__summary-label { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+.client-form__summary-value { margin: 0; font-size: var(--font-size-md); font-weight: 600; overflow-wrap: anywhere; }
+
+.client-form__actions {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+}

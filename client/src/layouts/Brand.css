@@ -1,0 +1,19 @@
+/* Logo (layouts/Brand.jsx) */
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.brand__mark {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: #fff;
+}
+.brand__mark .MuiSvgIcon-root { font-size: 20px; transform: rotate(-45deg); }
+.brand__text { display: flex; flex-direction: column; min-width: 0; }
+.brand__name { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.brand__subtitle { font-size: var(--font-size-sm); color: var(--color-text-muted); line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.brand--inverted .brand__mark { background: rgba(255, 255, 255, 0.16); }
+.brand--inverted .brand__name { color: #fff; }
+.brand--inverted .brand__subtitle { color: rgba(255, 255, 255, 0.75); }

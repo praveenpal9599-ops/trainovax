@@ -1,0 +1,116 @@
+/* =====================================================================
+   Desktop shell for Super Admin & Admin (layouts/DashboardLayout.jsx)
+   --dash-sidebar is the current sidebar width (full / mini / 0 on mobile)
+   ===================================================================== */
+.dash { --dash-sidebar: var(--sidebar-width); min-height: 100vh; }
+.dash--mini { --dash-sidebar: var(--sidebar-width-mini); }
+.dash--mobile { --dash-sidebar: 0px; }
+
+/* ---------- Top bar ---------- */
+.topbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: var(--dash-sidebar);
+  z-index: 1100;
+  height: var(--topbar-height);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-6);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+  transition: left 0.2s;
+}
+.topbar__brand { display: none; }
+.topbar__date { margin-left: var(--space-2); font-size: var(--font-size-md); color: var(--color-text-muted); }
+.dash--mobile .topbar { padding: 0 var(--space-4); }
+.dash--mobile .topbar__brand { display: block; }
+.dash--mobile .topbar__date { display: none; }
+
+/* ---------- Sidebar container ---------- */
+.dash__aside {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1200;
+  width: var(--dash-sidebar);
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  overflow-x: hidden;
+  transition: width 0.2s;
+}
+.dash__drawer { width: var(--sidebar-width); }
+
+/* ---------- Main content ---------- */
+.dash__main {
+  margin-left: var(--dash-sidebar);
+  padding-top: var(--topbar-height);
+  min-width: 0;
+  outline: none;
+  transition: margin-left 0.2s;
+}
+.dash__content { max-width: 1480px; margin: 0 auto; padding: var(--space-8); }
+@media (max-width: 1199.98px) { .dash__content { padding: var(--space-6); } }
+@media (max-width: 599.98px) { .dash__content { padding: var(--space-4); } }
+
+/* ---------- Sidebar ---------- */
+.sidebar { display: flex; flex-direction: column; height: 100%; }
+.sidebar__brand {
+  height: var(--topbar-height);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+.sidebar__nav { flex: 1; overflow-y: auto; overflow-x: hidden; padding: var(--space-2) var(--space-3); }
+.sidebar__section {
+  margin-top: var(--space-2);
+  padding: 0 var(--space-3);
+  line-height: 32px;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-disabled);
+}
+.sidebar__divider { border: 0; height: 1px; background: var(--color-border); margin: var(--space-2) 0; }
+.sidebar__list { list-style: none; margin: 0; padding: 0; }
+
+.sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 2px;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-md);
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.sidebar__link:hover { background: var(--color-primary-tint); }
+.sidebar__link.active { background: var(--color-primary-soft); color: var(--color-primary); font-weight: 700; }
+.sidebar__link:focus-visible { outline: 2px solid var(--color-primary); outline-offset: -2px; }
+.sidebar__icon { display: inline-flex; width: 24px; justify-content: center; flex-shrink: 0; }
+.sidebar__label { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sidebar__count {
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  background: var(--color-error);
+  color: #fff;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  display: inline-grid;
+  place-items: center;
+}
+
+/* Mini (collapsed) sidebar: icons only, centred */
+.sidebar--mini .sidebar__brand { padding: 0; justify-content: center; }
+.sidebar--mini .sidebar__link { justify-content: center; padding: 10px 0; }

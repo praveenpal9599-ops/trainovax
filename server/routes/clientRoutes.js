@@ -1,0 +1,33 @@
+import { Router } from 'express';
+import * as c from '../controllers/clientController.js';
+import { requirePermission } from '../middleware/auth.js';
+import { validate } from '../middleware/validate.js';
+import { uploadImage } from '../middleware/upload.js';
+import { idParam, status } from '../validators/common.js';
+import * as v from '../validators/clientValidators.js';
+import { z } from 'zod';
+
+const r = Router();
+const view = requirePermission('clients.view');
+const manage = requirePermission('clients.manage');
+const id = validate({ params: idParam.passthrough() });
+
+r.get('/', view, c.list);
+r.post('/', manage, validate({ body: v.createClientSchema }), c.create);
+r.post('/bulk/status', manage, validate({ body: v.bulkSchema }), c.bulkStatus);
+r.post('/bulk/delete', manage, validate({ body: v.bulkSchema }), c.bulkDelete);
+r.get('/:id', view, id, c.get);
+r.put('/:id', manage, id, validate({ body: v.updateClientSchema }), c.update);
+r.patch('/:id/status', manage, id, validate({ body: z.object({ status }) }), c.setStatus);
+r.delete('/:id', manage, id, c.remove);
+r.post('/:id/photo', manage, id, uploadImage.single('file'), c.uploadPhoto);
+r.get('/:id/history', view, id, c.history);
+r.get('/:id/logs', view, id, c.logs);
+r.get('/:id/notes', view, id, c.listNotes);
+r.post('/:id/notes', manage, id, validate({ body: v.noteSchema }), c.createNote);
+r.put('/:id/notes/:noteId', manage, id, validate({ body: v.noteSchema }), c.updateNote);
+r.delete('/:id/notes/:noteId', manage, id, c.deleteNote);
+r.get('/:id/attendance', view, id, c.listAttendance);
+r.post('/:id/attendance', manage, id, validate({ body: v.attendanceSchema }), c.markAttendance);
+r.delete('/:id/attendance/:attendanceId', manage, id, c.deleteAttendance);
+export default r;

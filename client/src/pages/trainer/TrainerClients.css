@@ -1,0 +1,35 @@
+/* Trainer app client list (pages/trainer/TrainerClients.jsx) */
+.trainer-clients__add.MuiButton-root { margin-bottom: var(--space-4); }
+.trainer-clients__skeleton { margin-bottom: var(--space-3); }
+.trainer-clients__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.trainer-clients__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  cursor: pointer;
+}
+.trainer-clients__name-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+.trainer-clients__name { font-size: var(--font-size-base); font-weight: 600; line-height: 1.6; }
+.trainer-clients__sub { font-size: var(--font-size-md); color: var(--color-text-muted); }
+.trainer-clients__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+.trainer-clients__actions {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+.trainer-clients__btn.MuiButton-root { flex: 1; }
+.trainer-clients__btn--neutral.MuiButton-root { border-color: var(--color-border); }

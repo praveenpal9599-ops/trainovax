@@ -1,0 +1,70 @@
+/* Progress photo gallery, upload dialog, lightbox and compare view (features/progress/PhotoGallery.jsx)
+   Narrow (phone app) layout first; @container content rules add columns on the desktop dashboard. */
+
+/* ---------- Upload dialog ---------- */
+.photo-upload__error { margin-bottom: var(--space-4); }
+.photo-upload__drop {
+  display: grid;
+  place-items: center;
+  height: 220px;
+  overflow: hidden;
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  background: #fafbfc;
+  cursor: pointer;
+}
+.photo-upload__preview { max-width: 100%; max-height: 100%; object-fit: contain; }
+.photo-upload__cta { font-size: var(--font-size-md); font-weight: 600; }
+.photo-upload__row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); }
+
+/* ---------- Gallery ---------- */
+.photo-gallery__toolbar { margin-bottom: var(--space-4); }
+.photo-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@container content (min-width: 600px) {
+  .photo-gallery__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@container content (min-width: 900px) {
+  .photo-gallery__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.photo-gallery__item { position: relative; overflow: hidden; }
+.photo-gallery__open {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  padding: 0;
+  border: 0;
+  background: #eef1f5;
+  cursor: zoom-in;
+}
+.photo-gallery__img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.photo-gallery__meta { display: flex; align-items: center; padding: var(--space-2) var(--space-3); }
+.photo-gallery__date { font-size: var(--font-size-md); font-weight: 600; }
+
+/* ---------- Lightbox ---------- */
+.photo-lightbox { position: relative; background: #000; }
+.photo-lightbox__close.MuiIconButton-root {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+}
+.photo-lightbox__img { display: block; max-width: 100%; max-height: 80vh; }
+.photo-lightbox__caption { padding: var(--space-3); background: #fff; }
+.photo-lightbox__title { font-size: var(--font-size-md); font-weight: 600; }
+
+/* ---------- Before / after ---------- */
+.photo-compare { padding: var(--space-4); }
+.photo-compare__header { margin-bottom: var(--space-2); }
+.photo-compare__title { font-size: var(--font-size-lg); font-weight: 700; }
+.photo-compare__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); }
+.photo-compare__item { margin: 0; }
+.photo-compare__caption { line-height: 2.5; }
+.photo-compare__img { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--radius-md); }

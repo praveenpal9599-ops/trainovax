@@ -1,0 +1,67 @@
+/* Daily nutrition totals card (features/diet/NutritionSummary.jsx)
+   Narrow (phone) first: calories block above the macros; side by side on wide content. */
+.nutrition-summary {
+  --macro-protein: var(--chart-1);
+  --macro-carbs: var(--chart-3);
+  --macro-fat: var(--chart-4);
+  --macro-fiber: var(--chart-5);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-6);
+  align-items: center;
+  padding: var(--space-5);
+}
+@container content (min-width: 900px) {
+  .nutrition-summary { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
+}
+
+.nutrition-summary__calories { min-width: 0; }
+.nutrition-summary__title {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+.nutrition-summary__kcal-row { display: flex; align-items: baseline; gap: var(--space-2); }
+.nutrition-summary__kcal { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.5; }
+.nutrition-summary__kcal-unit { font-size: var(--font-size-base); color: var(--color-text-muted); }
+.nutrition-summary__progress { margin-top: var(--space-2); }
+.nutrition-summary__caption {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* Macro tiles: 2 per row on phones, 4 in a row when there is room */
+.nutrition-summary__macros-wrap { min-width: 0; }
+.nutrition-summary__macros {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+@container content (min-width: 600px) {
+  .nutrition-summary__macros { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.nutrition-summary__macro-head { display: flex; align-items: center; gap: 6px; }
+.nutrition-summary__macro-label { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-text-muted); }
+.nutrition-summary__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--dot-color); }
+.nutrition-summary__dot--protein { --dot-color: var(--macro-protein); }
+.nutrition-summary__dot--carbs { --dot-color: var(--macro-carbs); }
+.nutrition-summary__dot--fat { --dot-color: var(--macro-fat); }
+.nutrition-summary__dot--fiber { --dot-color: var(--macro-fiber); }
+.nutrition-summary__macro-value { font-size: 20px; font-weight: 700; line-height: 1.5; }
+.nutrition-summary__macro-unit { font-size: var(--font-size-md); font-weight: 400; color: var(--color-text-muted); }
+
+/* Stacked protein / carbs / fat bar; each segment width comes from --seg-pct */
+.nutrition-summary__split {
+  display: flex;
+  height: 8px;
+  margin-top: var(--space-3);
+  border-radius: 4px;
+  overflow: hidden;
+  background: #e8eef6;
+}
+.nutrition-summary__seg { width: var(--seg-pct); }
+.nutrition-summary__seg--protein { background: var(--macro-protein); }
+.nutrition-summary__seg--carbs { background: var(--macro-carbs); }
+.nutrition-summary__seg--fat { background: var(--macro-fat); }

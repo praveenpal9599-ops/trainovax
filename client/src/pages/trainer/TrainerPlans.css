@@ -1,0 +1,51 @@
+/* Trainer app workout / diet plan list (pages/trainer/TrainerPlans.jsx) */
+.trainer-plans__actions {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+.trainer-plans__assign.MuiButton-root {
+  min-width: 52px;
+  padding-inline: var(--space-3);
+  background: #fff;
+}
+.trainer-plans__skeleton { margin-bottom: var(--space-3); }
+.trainer-plans__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.trainer-plans__card { padding: var(--space-4); }
+.trainer-plans__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.trainer-plans__name { font-size: var(--font-size-base); font-weight: 600; line-height: 1.6; }
+.trainer-plans__client { font-size: var(--font-size-md); color: var(--color-text-muted); }
+.trainer-plans__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+.trainer-plans__progress {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+.trainer-plans__progress-label {
+  width: 110px;
+  flex-shrink: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+.trainer-plans__progress-bar { flex: 1; }
+.trainer-plans__progress-value {
+  width: 34px;
+  flex-shrink: 0;
+  text-align: right;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+}

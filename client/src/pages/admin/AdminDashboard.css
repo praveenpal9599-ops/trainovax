@@ -1,0 +1,56 @@
+/* Trainer (admin) dashboard (pages/admin/AdminDashboard.jsx) */
+
+/* KPI tiles: 2 → 3 → 6 per row */
+.admin-dash__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+/* Card rows */
+.admin-dash__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+  margin-bottom: var(--space-5);
+}
+.admin-dash__row:last-child { margin-bottom: 0; }
+
+/* Workout completion: ring (hidden on narrow) + bar chart */
+.admin-dash__completion {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  height: 100%;
+}
+.admin-dash__completion-ring { display: none; }
+.admin-dash__completion-chart { flex: 1; min-width: 0; height: 100%; }
+
+/* Needs-attention list */
+.admin-dash__attention-item.MuiListItemButton-root { gap: var(--space-3); padding-left: var(--space-2); padding-right: var(--space-2); }
+.admin-dash__name { font-size: var(--font-size-md); font-weight: 600; }
+
+/* Recent clients table */
+.admin-dash__table-wrap { overflow-x: auto; }
+.admin-dash__row-link { cursor: pointer; }
+.admin-dash__client { display: flex; align-items: center; gap: 10px; }
+.admin-dash__col-sm.MuiTableCell-root { display: none; }
+
+@container content (min-width: 600px) {
+  .admin-dash__stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .admin-dash__completion-ring { display: block; }
+  .admin-dash__col-sm.MuiTableCell-root { display: table-cell; }
+}
+
+@container content (min-width: 900px) {
+  .admin-dash__row--thirds { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .admin-dash__row--thirds .admin-dash__attention { grid-column: 1 / -1; }
+}
+
+@container content (min-width: 1200px) {
+  .admin-dash__stats { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .admin-dash__row--wide-narrow { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+  .admin-dash__row--thirds { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .admin-dash__row--thirds .admin-dash__attention { grid-column: auto; }
+}

@@ -1,0 +1,84 @@
+/* Trainer app diet plan editor (pages/trainer/MobileDietEditor.jsx).
+   The save bar uses .app-actionbar from layouts/MobileAppLayout.css. */
+
+/* Leave room for the fixed save bar */
+.mobile-diet-editor { padding-bottom: 96px; }
+.mobile-diet-editor__alert.MuiAlert-root { margin-bottom: var(--space-4); }
+
+/* Two fields side by side in the plan details card */
+.mobile-diet-editor__pair {
+  display: flex;
+  gap: var(--space-3);
+}
+
+/* ---------- Meal sections ---------- */
+.mobile-diet-editor__meals {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+.mobile-diet-editor__meal { padding: var(--space-3); background: var(--color-surface-muted); }
+.mobile-diet-editor__meal-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: 10px;
+}
+.mobile-diet-editor__meal-name {
+  font-size: var(--font-size-md);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.mobile-diet-editor__meta { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+.mobile-diet-editor__time.MuiFormControl-root { width: 136px; flex-shrink: 0; }
+.mobile-diet-editor__veg-adorn { padding-top: var(--space-1); }
+.mobile-diet-editor__custom.MuiButton-root {
+  margin: var(--space-2) 0;
+  background: #fff;
+  border: 1px solid var(--color-border);
+}
+
+/* ---------- One food inside a meal ---------- */
+.mobile-diet-editor__food {
+  margin-bottom: var(--space-2);
+  padding: var(--space-3);
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+.mobile-diet-editor__food-head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+.mobile-diet-editor__food-veg { padding-top: 3px; }
+.mobile-diet-editor__food-name { font-size: var(--font-size-md); font-weight: 700; }
+.mobile-diet-editor__qty-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: 6px;
+}
+.mobile-diet-editor__qty.MuiFormControl-root { width: 76px; flex-shrink: 0; }
+.MuiButton-root.MuiButton-sizeSmall.mobile-diet-editor__remove {
+  min-height: 30px;
+  padding-inline: var(--space-2);
+}
+.mobile-diet-editor__nutrition {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 10px;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.mobile-diet-editor__nutrition-value { font-size: var(--font-size-md); font-weight: 800; color: var(--color-primary); }
+
+.mobile-diet-editor__notes { margin-top: var(--space-4); }
+
+/* ---------- Save bar summary ---------- */
+.mobile-diet-editor__bar { gap: var(--space-3); }
+.mobile-diet-editor__summary-text { font-size: var(--font-size-md); font-weight: 800; }
+.mobile-diet-editor__progress.MuiLinearProgress-root { height: 5px; margin: var(--space-1) 0; }

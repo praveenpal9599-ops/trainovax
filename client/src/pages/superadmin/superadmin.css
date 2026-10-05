@@ -1,0 +1,52 @@
+/* Shared styles for the super admin list pages and their form dialogs
+   (pages/superadmin/OrganizationsPage.jsx, TrainersPage.jsx, SubscriptionsPage.jsx,
+   AuditLogsPage.jsx, SystemSettingsPage.jsx) */
+
+/* ---------- Table cells ---------- */
+/* Avatar + name + secondary line (organization / user column) */
+.sa-person { display: flex; align-items: center; gap: var(--space-3); }
+.sa-person__name { font-weight: 600; }
+.sa-person__meta { display: block; font-size: var(--font-size-sm); color: var(--color-text-muted); }
+.sa-cell-strong { font-weight: 600; }
+.sa-cell-inline { display: flex; align-items: center; gap: var(--space-2); }
+
+/* ---------- Form dialogs ----------
+   Dialogs are portalled to <body> (outside the `content` container),
+   so their breakpoints use viewport media queries. */
+.sa-dialog__alert { margin-bottom: var(--space-4); }
+
+/* 12-column field grid: full width on phones unless marked --half */
+.sa-form-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+.sa-form-grid > * { grid-column: span 12; min-width: 0; }
+.sa-form-grid > .sa-col--half { grid-column: span 6; }
+@media (min-width: 600px) {
+  .sa-form-grid > .sa-col--sm-4 { grid-column: span 4; }
+  .sa-form-grid > .sa-col--sm-6 { grid-column: span 6; }
+  .sa-form-grid > .sa-col--sm-8 { grid-column: span 8; }
+}
+
+/* ---------- Trainers page ---------- */
+.sa-invite-code { font-family: monospace; font-weight: 700; letter-spacing: 0.08em; }
+.sa-specialization { max-width: 220px; }
+
+/* ---------- System settings page ---------- */
+.sa-settings {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+}
+@container content (min-width: 900px) {
+  .sa-settings { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.sa-settings__fields { display: flex; flex-direction: column; gap: 18px; margin-top: var(--space-2); }
+.sa-settings__notice { display: block; margin-left: 48px; font-size: var(--font-size-sm); color: var(--color-warning-dark); }
+
+/* ---------- Audit logs page ---------- */
+.sa-audit__desc { max-width: 420px; }
+.sa-audit__ip { font-family: monospace; font-size: var(--font-size-sm); }
+.sa-audit__range { display: flex; gap: var(--space-2); }
+.sa-audit__date { width: 160px; }

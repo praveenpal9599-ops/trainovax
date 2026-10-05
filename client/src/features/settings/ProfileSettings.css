@@ -1,0 +1,10 @@
+/* Profile + password settings, shared by every role (features/settings/ProfileSettings.jsx) */
+.profile-settings { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-5); }
+@container content (min-width: 900px) {
+  .profile-settings { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.profile-settings__photo { margin: var(--space-4) 0; }
+.profile-settings__label { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+.profile-settings__value { font-size: var(--font-size-md); font-weight: 500; }
+.profile-settings__alert { margin: var(--space-2) 0; }
+.profile-settings__password { margin-top: var(--space-4); }

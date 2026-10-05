@@ -1,0 +1,25 @@
+/* Trainer settings page (pages/admin/AdminSettingsPage.jsx) */
+.admin-settings__invite { max-width: 640px; margin-bottom: var(--space-5); }
+.admin-settings__backup { margin-top: var(--space-5); }
+.admin-settings__alert { margin: var(--space-3) 0; }
+
+/* Export / import option boxes: stacked, side by side from md */
+.admin-settings__options {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-1);
+}
+.admin-settings__option {
+  height: 100%;
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+.admin-settings__option-head { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2); }
+.admin-settings__option-title { font-size: var(--font-size-md); font-weight: 600; }
+.admin-settings__option-text { font-size: var(--font-size-md); color: var(--color-text-muted); margin-bottom: var(--space-4); }
+
+@container content (min-width: 900px) {
+  .admin-settings__options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

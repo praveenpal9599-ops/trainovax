@@ -1,0 +1,7 @@
+/* "Your trainer" card on the client app (features/clients/TrainerCard.jsx) */
+.trainer-card__head { display: flex; align-items: center; gap: var(--space-3); margin-top: var(--space-2); }
+.trainer-card__info { min-width: 0; }
+.trainer-card__name { font-size: var(--font-size-base); font-weight: 600; }
+.trainer-card__bio { margin-top: var(--space-3); }
+.trainer-card__certs { display: block; margin-top: var(--space-2); }
+.trainer-card__actions { margin-top: var(--space-4); }

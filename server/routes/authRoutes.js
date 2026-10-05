@@ -1,0 +1,20 @@
+import { Router } from 'express';
+import * as c from '../controllers/authController.js';
+import { authenticate } from '../middleware/auth.js';
+import { validate } from '../middleware/validate.js';
+import { authLimiter } from '../middleware/rateLimiter.js';
+import { uploadImage } from '../middleware/upload.js';
+import * as v from '../validators/authValidators.js';
+
+const r = Router();
+r.post('/login', authLimiter, validate({ body: v.loginSchema }), c.login);
+r.post('/register', authLimiter, validate({ body: v.registerSchema }), c.register);
+r.get('/trainer-code/:code', authLimiter, validate({ params: v.trainerCodeParam }), c.trainerByCode);
+r.post('/forgot-password', authLimiter, validate({ body: v.forgotSchema }), c.forgotPassword);
+r.post('/reset-password', authLimiter, validate({ body: v.resetSchema }), c.resetPassword);
+r.get('/me', authenticate, c.me);
+r.put('/me', authenticate, validate({ body: v.updateMeSchema }), c.updateMe);
+r.post('/me/avatar', authenticate, uploadImage.single('file'), c.uploadAvatar);
+r.put('/change-password', authenticate, validate({ body: v.changePasswordSchema }), c.changePassword);
+r.post('/logout', authenticate, c.logout);
+export default r;

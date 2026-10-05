@@ -1,0 +1,4 @@
+.loading-screen { display: grid; place-items: center; min-height: 320px; }
+.loading-screen--full { min-height: 100vh; }
+.loading-screen__inner { text-align: center; }
+.loading-screen__label { margin-top: var(--space-3); font-size: var(--font-size-md); color: var(--color-text-muted); }

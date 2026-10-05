@@ -1,0 +1,6 @@
+/* 404 page (pages/shared/NotFoundPage.jsx) */
+.not-found { display: grid; place-items: center; min-height: 420px; padding: var(--space-6); text-align: center; }
+.not-found--standalone { min-height: 100vh; }
+.not-found__icon.MuiSvgIcon-root { font-size: 56px; color: var(--color-primary); margin-bottom: var(--space-2); }
+.not-found__title { font-size: var(--font-size-2xl); font-weight: 700; line-height: 1.235; margin-bottom: 0.35em; }
+.not-found__text { font-size: var(--font-size-base); color: var(--color-text-muted); margin-bottom: var(--space-6); }

@@ -1,0 +1,60 @@
+/* Client profile — Attendance tab (features/clients/profile/AttendanceTab.jsx) */
+
+/* 12-column layout: stats 2-up on phones, 4-up from 900px; calendar 7/12 + form 5/12 */
+.client-attendance {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+.client-attendance > * { grid-column: span 12; min-width: 0; }
+.client-attendance > .client-attendance__stat { grid-column: span 6; }
+@container content (min-width: 900px) {
+  .client-attendance > .client-attendance__stat { grid-column: span 3; }
+  .client-attendance > .client-attendance__calendar { grid-column: span 7; }
+  .client-attendance > .client-attendance__mark { grid-column: span 5; }
+}
+
+/* Last-4-weeks calendar */
+.client-attendance__days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-top: var(--space-2);
+}
+.client-attendance__weekday { font-size: var(--font-size-sm); color: var(--color-text-muted); text-align: center; }
+.client-attendance__day {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-md);
+  background: #eef1f5;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+/* Status colours (used by calendar cells and legend swatches) */
+.client-attendance__day--present { background: var(--color-success); color: #fff; }
+.client-attendance__day--late { background: var(--color-warning); color: #fff; }
+.client-attendance__day--absent { background: var(--color-error); color: #fff; }
+.client-attendance__day--excused { background: #90a4ae; color: #fff; }
+
+.client-attendance__legend { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-top: var(--space-4); }
+.client-attendance__legend-item { display: flex; align-items: center; gap: 6px; }
+.client-attendance__swatch { width: 10px; height: 10px; border-radius: 4px; }
+
+/* Mark-attendance form */
+.client-attendance__form { display: flex; flex-direction: column; gap: var(--space-4); margin-top: var(--space-2); }
+.client-attendance__form-row { display: flex; gap: var(--space-3); }
+
+/* Session log rows */
+.client-attendance__row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: 10px var(--space-5);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--font-size-md);
+}
+.client-attendance__date { width: 130px; flex-shrink: 0; font-weight: 600; }
+.client-attendance__time { width: 90px; flex-shrink: 0; color: var(--color-text-muted); }
+.client-attendance__notes { flex: 1; color: var(--color-text-muted); }

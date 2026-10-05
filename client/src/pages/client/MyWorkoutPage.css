@@ -1,0 +1,98 @@
+/* Client "My workout" screen (pages/client/MyWorkoutPage.jsx) — phone-width app layout */
+
+.my-workout__title { margin-bottom: var(--space-1); }
+.my-workout__subtitle { margin-bottom: var(--space-4); }
+
+/* ---------- Week strip ---------- */
+.my-workout__week {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-1);
+  overflow-x: auto;
+}
+.my-workout__day.MuiButtonBase-root {
+  flex: 1 0 52px;
+  min-width: 52px;
+  flex-direction: column;
+  padding: 10px 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+.my-workout__day--selected.MuiButtonBase-root {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(21, 101, 192, 0.3);
+}
+.my-workout__day-name { font-size: var(--font-size-sm); font-weight: 600; opacity: 0.8; }
+.my-workout__day-num { font-size: 18px; font-weight: 800; line-height: 1.5; }
+.my-workout__day-dot { width: 6px; height: 6px; margin-top: 2px; border-radius: 50%; background: transparent; }
+.my-workout__day-dot--todo { background: var(--color-primary-light); }
+.my-workout__day-dot--partial { background: var(--color-warning); }
+.my-workout__day-dot--done { background: var(--color-success); }
+.my-workout__day--selected .my-workout__day-dot--todo { background: rgba(255, 255, 255, 0.6); }
+.my-workout__day--selected .my-workout__day-dot--done { background: #fff; }
+.my-workout__day-today { font-size: 9px; font-weight: 700; color: var(--color-primary); }
+
+/* ---------- Day summary ---------- */
+.my-workout__summary { margin-bottom: var(--space-4); padding: var(--space-5); }
+.my-workout__summary-row { display: flex; align-items: center; gap: var(--space-4); }
+.my-workout__day-title { font-size: var(--font-size-lg); font-weight: 700; line-height: 1.4; }
+.my-workout__chips { margin-top: var(--space-2); }
+.my-workout__progress { margin-top: var(--space-4); }
+.my-workout__preview-note { margin-bottom: var(--space-4); }
+.my-workout__list { display: flex; flex-direction: column; gap: var(--space-4); }
+
+/* ---------- Exercise card ---------- */
+.my-workout__exercise--done {
+  border-color: rgba(46, 125, 50, 0.5);
+  background: rgba(46, 125, 50, 0.03);
+}
+.my-workout__exercise--skipped { border-color: rgba(237, 108, 2, 0.5); }
+.my-workout__exercise-body { padding: var(--space-4); }
+.my-workout__exercise-head { display: flex; align-items: center; gap: var(--space-3); }
+.my-workout__thumb { position: relative; }
+.my-workout__badge {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+}
+.my-workout__badge--done { background: var(--color-success); }
+.my-workout__exercise-name { font-size: var(--font-size-base); font-weight: 600; line-height: 1.25; }
+.my-workout__exercise-name--done { text-decoration: line-through; }
+
+.my-workout__stats {
+  display: flex;
+  justify-content: space-around;
+  gap: var(--space-2);
+  margin: var(--space-3) 0;
+  padding: var(--space-2) 0;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+}
+.my-workout__stat { min-width: 54px; text-align: center; }
+.my-workout__stat-value { font-size: 17px; font-weight: 800; }
+
+.my-workout__coach-note.MuiAlert-root { margin-bottom: var(--space-3); padding-top: 0; padding-bottom: 0; font-size: 13px; }
+
+.my-workout__expand { transition: transform 0.2s; }
+.my-workout__expand--open { transform: rotate(180deg); }
+
+.my-workout__details { margin-top: var(--space-3); }
+.my-workout__weight-input.MuiTextField-root { max-width: 160px; margin-bottom: var(--space-3); }
+.my-workout__steps { margin: 0; padding-left: var(--space-5); font-size: var(--font-size-md); }
+.my-workout__steps li { margin-bottom: var(--space-1); }
+.my-workout__tempo { display: block; margin-top: var(--space-2); }
+.my-workout__video { display: inline-flex; align-items: center; gap: var(--space-1); margin-top: var(--space-2); }

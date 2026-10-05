@@ -1,0 +1,67 @@
+/* =====================================================================
+   Phone-app shell for Trainer & Client (layouts/MobileAppLayout.jsx)
+   ===================================================================== */
+.app-frame { min-height: 100vh; background: var(--color-bg-app-frame); }
+.app {
+  position: relative;
+  max-width: var(--app-max-width);
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--color-bg);
+  box-shadow: 0 0 40px rgba(23, 43, 77, 0.08);
+}
+
+/* Header */
+.app__header {
+  position: sticky;
+  top: 0;
+  z-index: 1100;
+  height: var(--app-header-height);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0 var(--space-4);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+}
+.app__brand { flex: 1; min-width: 0; }
+
+/* Page area — bottom padding leaves room for the tab bar */
+.app__main { padding: var(--space-4) var(--space-4) calc(96px + env(safe-area-inset-bottom)); }
+
+/* Bottom tab bar */
+.app__tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1100;
+  max-width: var(--app-max-width);
+  margin: 0 auto;
+  padding-bottom: env(safe-area-inset-bottom);
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+.app__tabs { height: var(--app-tabbar-height); }
+.app__tab { min-width: 0; padding: 0 var(--space-1); }
+.app__tab.Mui-selected { color: var(--color-primary); }
+.app__tab .MuiBottomNavigationAction-label { font-size: var(--font-size-xs); margin-top: 2px; }
+.app__tab .MuiBottomNavigationAction-label.Mui-selected { font-size: var(--font-size-xs); font-weight: 700; }
+
+/* Fixed action bar that sits just above the tab bar (used by the mobile plan editors) */
+.app-actionbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--app-tabbar-height) + env(safe-area-inset-bottom));
+  z-index: 1050;
+  max-width: var(--app-max-width);
+  margin: 0 auto;
+  padding: 10px var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: rgba(255, 255, 255, 0.97);
+  border-top: 1px solid var(--color-border);
+}

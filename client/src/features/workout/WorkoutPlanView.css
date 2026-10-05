@@ -1,0 +1,39 @@
+/* Read-only weekly workout plan (features/workout/WorkoutPlanView.jsx)
+   One day per row on phones; 2 / 3 columns as the content gets wider. */
+.workout-plan-view {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+}
+@container content (min-width: 900px) {
+  .workout-plan-view { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@container content (min-width: 1200px) {
+  .workout-plan-view { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.workout-plan-view__day { height: 100%; overflow: hidden; }
+.workout-plan-view__day--today { border: 2px solid var(--color-primary); }
+
+.workout-plan-view__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface-muted);
+  border-bottom: 1px solid var(--color-border);
+}
+.workout-plan-view__day--today .workout-plan-view__head { background: var(--color-primary-tint); }
+.workout-plan-view__title { font-size: var(--font-size-md); font-weight: 600; line-height: 1.57; }
+.workout-plan-view__meta { display: block; font-size: var(--font-size-sm); color: var(--color-text-muted); }
+
+.workout-plan-view__exercises { list-style: none; margin: 0; padding: var(--space-2) var(--space-4); }
+.workout-plan-view__exercise {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 0;
+}
+.workout-plan-view__exercise + .workout-plan-view__exercise { border-top: 1px solid var(--color-border); }
+.workout-plan-view__name { font-size: var(--font-size-md); font-weight: 600; }

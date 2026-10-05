@@ -1,0 +1,25 @@
+/* Add / edit measurement dialog (features/progress/MeasurementDialog.jsx)
+   The form is its own size container so it switches 2 → 3 columns with the dialog width
+   (full-screen on phones, 600px dialog on desktop). */
+.measurement-form__error { margin-bottom: var(--space-4); }
+.measurement-form { container-type: inline-size; container-name: measurement-form; }
+.measurement-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+.measurement-form__date { grid-column: 1 / -1; }
+@container measurement-form (min-width: 480px) {
+  .measurement-form__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .measurement-form__date { grid-column: auto; }
+}
+.measurement-form__bmi {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+.measurement-form__bmi-value { font-size: var(--font-size-base); font-weight: 700; }

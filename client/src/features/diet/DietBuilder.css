@@ -1,0 +1,105 @@
+/* Diet builder: meals → foods (features/diet/DietBuilder.jsx)
+   Narrow first; meal header and food rows spread into columns when the content is wider. */
+
+/* ---------- Meal card ---------- */
+.diet-builder__meal-head {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--space-3);
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-primary-tint);
+  border-bottom: 1px solid var(--color-border);
+  border-radius: calc(var(--radius-lg) - 1px) calc(var(--radius-lg) - 1px) 0 0;
+}
+.diet-builder__meal-type,
+.diet-builder__meal-name { grid-column: span 6; }
+.diet-builder__meal-time { grid-column: span 5; }
+.diet-builder__meal-actions {
+  grid-column: span 7;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--space-1);
+}
+.diet-builder__meal-kcal {
+  margin-right: var(--space-2);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.diet-builder__meal-body { padding: var(--space-3); }
+.diet-builder__empty {
+  padding: var(--space-4);
+  text-align: center;
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
+}
+
+/* Add-food button + meal totals: stacked on phones, one row when wider */
+.diet-builder__meal-foot {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.diet-builder__meal-total { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+
+/* ---------- Food row ----------
+   Phone: name / qty + macros / actions / notes.  Wide: name | qty | macros | actions, notes below. */
+.diet-builder__food {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  grid-template-areas:
+    "info    info"
+    "qty     macros"
+    "actions actions"
+    "notes   notes";
+  gap: var(--space-2);
+  align-items: center;
+  margin-bottom: var(--space-2);
+  padding: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+.diet-builder__food-info { grid-area: info; display: flex; align-items: center; gap: var(--space-2); min-width: 0; }
+.diet-builder__food-qty { grid-area: qty; }
+.diet-builder__food-macros {
+  grid-area: macros;
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
+.diet-builder__food-actions { grid-area: actions; display: flex; justify-content: flex-end; }
+.diet-builder__food-notes { grid-area: notes; }
+
+.diet-builder__food-name { font-size: var(--font-size-md); font-weight: 600; }
+.diet-builder__food-meta { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+.diet-builder__notes-input { font-size: 13px; color: var(--color-text-muted); }
+
+/* Macro figure (value over label) */
+.diet-builder__macro { min-width: 52px; text-align: right; }
+.diet-builder__macro-value { font-size: var(--font-size-md); font-weight: 600; }
+.diet-builder__macro-value--strong { font-weight: 700; }
+.diet-builder__macro-label { font-size: 10.5px; color: var(--color-text-muted); }
+.diet-builder__macro--fiber { display: none; }
+
+@container content (min-width: 600px) {
+  .diet-builder__meal-type,
+  .diet-builder__meal-name { grid-column: span 3; }
+  .diet-builder__meal-time { grid-column: span 2; }
+  .diet-builder__meal-actions { grid-column: span 4; }
+
+  .diet-builder__meal-foot { flex-direction: row; justify-content: space-between; align-items: center; }
+  .diet-builder__macro--fiber { display: block; }
+}
+
+@container content (min-width: 900px) {
+  .diet-builder__food {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 1.5fr) minmax(0, 4.5fr) minmax(0, 2fr);
+    grid-template-areas:
+      "info  qty   macros actions"
+      "notes notes notes  notes";
+  }
+  .diet-builder__food-macros { justify-content: space-around; }
+}

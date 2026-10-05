@@ -1,0 +1,33 @@
+/* Read-only diet plan (features/diet/DietPlanView.jsx) — one column on phones, two on wide content */
+.diet-plan-view__meals {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+@container content (min-width: 900px) {
+  .diet-plan-view__meals { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.diet-plan-view__meal { height: 100%; overflow: hidden; }
+.diet-plan-view__head {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface-muted);
+  border-bottom: 1px solid var(--color-border);
+}
+.diet-plan-view__title { font-size: var(--font-size-md); font-weight: 600; line-height: 1.57; }
+.diet-plan-view__meta { display: block; font-size: var(--font-size-sm); color: var(--color-text-muted); }
+
+.diet-plan-view__foods { list-style: none; margin: 0; padding: var(--space-1) var(--space-4); }
+.diet-plan-view__food {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 0;
+}
+.diet-plan-view__food + .diet-plan-view__food { border-top: 1px solid var(--color-border); }
+.diet-plan-view__food-name { font-size: var(--font-size-md); font-weight: 500; }
+.diet-plan-view__food-kcal { font-size: var(--font-size-md); color: var(--color-text-muted); white-space: nowrap; }

@@ -1,0 +1,35 @@
+/* Food Master picker dialog (features/diet/FoodPickerDialog.jsx)
+   The dialog renders in a portal (outside the page container), so the picker is its own
+   size container: filters stack on narrow dialogs and sit in one row when there is room. */
+.food-picker { container: food-picker / inline-size; }
+
+.food-picker__filters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+@container food-picker (min-width: 480px) {
+  .food-picker__filters { flex-direction: row; }
+}
+.food-picker__select--category { min-width: 150px; }
+.food-picker__select--diet { min-width: 140px; }
+
+.food-picker__picked { margin-bottom: var(--space-3); }
+
+.food-picker__list {
+  height: 400px;
+  overflow-y: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+.food-picker__skeleton { margin: 0 var(--space-4); }
+
+.MuiListItemButton-root.food-picker__item {
+  gap: var(--space-3);
+  border-radius: 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.food-picker__name { font-size: var(--font-size-md); font-weight: 600; }
+.food-picker__kcal { font-size: var(--font-size-md); font-weight: 700; white-space: nowrap; }
+.food-picker__meta { display: block; font-size: var(--font-size-sm); color: var(--color-text-muted); }

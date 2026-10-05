@@ -1,0 +1,26 @@
+/* Client profile — Workout / Diet tab (features/clients/profile/PlansTab.jsx) */
+.client-plans__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+@container content (min-width: 600px) {
+  .client-plans__head { flex-direction: row; justify-content: space-between; align-items: center; }
+}
+.client-plans__title { font-size: var(--font-size-lg); font-weight: 700; line-height: 1.4; }
+.client-plans__meta { font-size: var(--font-size-md); color: var(--color-text-muted); }
+.client-plans__actions { display: flex; gap: var(--space-2); }
+
+.client-plans__empty { margin-bottom: var(--space-4); }
+.client-plans__history { margin-top: var(--space-5); }
+
+/* Plan history rows */
+.client-plans__item.MuiListItemButton-root {
+  border-radius: 0;
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-3);
+}
+.client-plans__item-name { font-size: var(--font-size-md); font-weight: 600; }
+.client-plans__item-meta { font-size: var(--font-size-sm); color: var(--color-text-muted); }

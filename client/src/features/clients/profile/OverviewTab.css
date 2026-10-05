@@ -1,0 +1,73 @@
+/* Client profile — Overview tab (features/clients/profile/OverviewTab.jsx) */
+
+/* 1 column → 2 columns (900px) → 3 columns (1200px) */
+.client-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+}
+@container content (min-width: 900px) {
+  .client-overview { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .client-overview__trend,
+  .client-overview__latest,
+  .client-overview__history { grid-column: span 2; }
+}
+@container content (min-width: 1200px) {
+  .client-overview { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .client-overview__latest,
+  .client-overview__history { grid-column: span 1; }
+}
+
+/* Latest measurements: 3 per row */
+.client-overview__measures {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin: 0;
+}
+.client-overview__measure-label { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+.client-overview__measure-value { margin: 0; font-size: var(--font-size-md); font-weight: 700; }
+.client-overview__measure-unit { font-size: var(--font-size-sm); font-weight: 400; color: var(--color-text-muted); }
+
+/* Current plans */
+.client-overview__plan-list { display: flex; flex-direction: column; gap: var(--space-3); }
+.client-overview__plan {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+.client-overview__plan-label { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+.client-overview__plan-name { font-size: var(--font-size-md); font-weight: 600; }
+
+/* Adherence meters */
+.client-overview__meter { margin-bottom: var(--space-4); }
+.client-overview__meter-bar.MuiLinearProgress-root { margin: 6px 0; }
+
+/* Activity history timeline */
+.client-overview__timeline { max-height: 320px; overflow-y: auto; padding-right: var(--space-2); }
+.client-overview__event { position: relative; display: flex; gap: var(--space-3); padding-bottom: var(--space-4); }
+.client-overview__event-marker { position: relative; flex-shrink: 0; }
+.client-overview__event-icon {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #eef3fb;
+  color: var(--color-primary);
+}
+.client-overview__event-icon .MuiSvgIcon-root { font-size: 16px; }
+.client-overview__event-line {
+  position: absolute;
+  left: 14.5px;
+  top: 32px;
+  bottom: -16px;
+  width: 1px;
+  background: var(--color-border);
+}
+.client-overview__event-body { min-width: 0; }
+.client-overview__event-title { font-size: var(--font-size-md); font-weight: 600; }
+.client-overview__event-detail { display: block; font-size: var(--font-size-sm); color: var(--color-text-muted); }

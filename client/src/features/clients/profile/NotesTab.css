@@ -1,0 +1,13 @@
+/* Client profile — Notes tab (features/clients/profile/NotesTab.jsx) */
+.client-notes { max-width: 820px; }
+
+.client-notes__composer { margin-bottom: var(--space-5); }
+.client-notes__composer-actions { display: flex; justify-content: flex-end; margin-top: var(--space-3); }
+
+.client-notes__list { display: flex; flex-direction: column; gap: var(--space-3); }
+.client-notes__note { display: flex; gap: var(--space-3); }
+.client-notes__note--pinned { border-left: 4px solid var(--color-primary); }
+.client-notes__body { flex: 1; min-width: 0; }
+.client-notes__meta { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+.client-notes__content { margin-top: var(--space-1); font-size: var(--font-size-md); white-space: pre-wrap; overflow-wrap: anywhere; }
+.client-notes__tools { flex-shrink: 0; }

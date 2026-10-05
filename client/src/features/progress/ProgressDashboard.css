@@ -1,0 +1,56 @@
+/* Progress charts + measurement history (features/progress/ProgressDashboard.jsx)
+   Narrow (phone app) layout first; @container content rules widen it on the desktop dashboard. */
+
+/* ---------- Toolbar: range presets + actions ---------- */
+.progress-dash__toolbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+.progress-dash__ranges { max-width: 100%; overflow-x: auto; }
+.progress-dash__range.MuiToggleButton-root { padding-left: var(--space-3); padding-right: var(--space-3); white-space: nowrap; }
+.progress-dash__date.MuiTextField-root { width: 160px; }
+.progress-dash__export.MuiButton-root { border-color: var(--color-border); }
+
+@container content (min-width: 900px) {
+  .progress-dash__toolbar { flex-direction: row; align-items: center; }
+}
+
+/* ---------- Summary tiles ---------- */
+.progress-dash__tiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+@container content (min-width: 600px) {
+  .progress-dash__tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@container content (min-width: 900px) {
+  .progress-dash__tiles { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+.progress-dash__tile { height: 100%; padding: var(--space-4); }
+.progress-dash__tile-label { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-text-muted); }
+.progress-dash__tile-value { margin-top: 2px; font-size: 22px; font-weight: 700; }
+.progress-dash__tile-unit { font-size: 13px; font-weight: 400; color: var(--color-text-muted); }
+.progress-dash__tile-foot { display: flex; align-items: center; gap: 6px; }
+.progress-dash__tile-change { font-size: var(--font-size-sm); font-weight: 700; }
+
+/* ---------- Charts ---------- */
+.progress-dash__charts { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-5); }
+@container content (min-width: 900px) {
+  .progress-dash__charts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@container content (min-width: 1200px) {
+  .progress-dash__charts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* ---------- Measurement history table ---------- */
+.progress-dash__history { margin-top: var(--space-5); }
+.progress-dash__table-wrap { background: var(--color-surface); border-top: 1px solid var(--color-border); }
+.progress-dash__table { min-width: 900px; }
+.progress-dash__cell-date { white-space: nowrap; font-weight: 600; }
+.progress-dash__cell-notes { max-width: 220px; color: var(--color-text-muted); }
+.progress-dash__notes { display: block; font-size: var(--font-size-md); }

@@ -1,0 +1,21 @@
+.progress-ring {
+  position: relative;
+  width: var(--ring-size);
+  height: var(--ring-size);
+  flex-shrink: 0;
+  --ring-color: var(--color-primary);
+  --ring-track: #e8eef6;
+}
+.progress-ring--success { --ring-color: var(--color-success); }
+.progress-ring--warning { --ring-color: var(--color-warning); }
+.progress-ring--light { --ring-color: #fff; --ring-track: rgba(255, 255, 255, 0.25); color: #fff; }
+
+.progress-ring__track, .progress-ring__bar { position: absolute; inset: 0; }
+.progress-ring__track { color: var(--ring-track) !important; }
+.progress-ring__bar { color: var(--ring-color) !important; }
+.progress-ring__bar circle { stroke-linecap: round; }
+
+.progress-ring__center { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; }
+.progress-ring__value { font-weight: 700; font-size: calc(var(--ring-size) * 0.22); line-height: 1; }
+.progress-ring__sublabel { font-size: max(10px, calc(var(--ring-size) * 0.11)); color: var(--color-text-muted); margin-top: 2px; }
+.progress-ring--light .progress-ring__sublabel { color: rgba(255, 255, 255, 0.85); }

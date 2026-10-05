@@ -1,0 +1,43 @@
+/* Super admin dashboard (pages/superadmin/SuperAdminDashboard.jsx) */
+
+/* KPI tiles: 2 per row, 4 per row from lg (main) / md (library) */
+.sa-dash__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+.sa-dash__stats--main { margin-bottom: var(--space-4); }
+.sa-dash__stats--library { margin-bottom: var(--space-5); }
+
+/* Card rows */
+.sa-dash__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+  margin-bottom: var(--space-5);
+}
+.sa-dash__row:last-child { margin-bottom: 0; }
+
+/* Top organizations list */
+.sa-dash__org.MuiListItemButton-root { gap: var(--space-3); padding-left: var(--space-2); padding-right: var(--space-2); }
+.sa-dash__rank { width: 16px; font-size: var(--font-size-md); color: var(--color-text-muted); }
+.sa-dash__org-name { font-size: var(--font-size-md); font-weight: 600; }
+.sa-dash__org-count { font-size: var(--font-size-md); font-weight: 700; }
+
+/* Recent activity list */
+.sa-dash__activity-item.MuiListItem-root { align-items: flex-start; padding-top: 6px; padding-bottom: 6px; }
+.sa-dash__activity-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.sa-dash__activity-desc { font-size: var(--font-size-md); }
+
+@container content (min-width: 900px) {
+  .sa-dash__stats--library { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .sa-dash__row--thirds { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sa-dash__row--thirds .sa-dash__activity { grid-column: 1 / -1; }
+}
+
+@container content (min-width: 1200px) {
+  .sa-dash__stats--main { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .sa-dash__row--wide-narrow { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+  .sa-dash__row--thirds { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sa-dash__row--thirds .sa-dash__activity { grid-column: auto; }
+}

@@ -1,0 +1,39 @@
+/* Client "My diet" screen (pages/client/MyDietPage.jsx) — phone-width app layout */
+
+.my-diet__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+.my-diet__subtitle { font-size: var(--font-size-base); color: var(--color-text-muted); }
+
+/* Day switcher (‹ Today ›) */
+.my-diet__date-nav {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+.my-diet__date { min-width: 92px; font-size: var(--font-size-md); font-weight: 600; text-align: center; }
+
+.my-diet__layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-4); margin-top: var(--space-4); }
+.my-diet__panel { padding: var(--space-5); }
+.my-diet__panel-title { margin-bottom: 0.35em; font-size: var(--font-size-md); font-weight: 600; }
+
+/* Meal card */
+.my-diet__meal--done { border-color: rgba(46, 125, 50, 0.5); }
+.my-diet__meal-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+.my-diet__meal-name { font-size: var(--font-size-base); font-weight: 600; }
+.my-diet__foods { list-style: none; margin: 0; padding: var(--space-1) var(--space-4); }
+.my-diet__food { display: flex; align-items: center; gap: 10px; padding: var(--space-2) 0; }
+.my-diet__food + .my-diet__food { border-top: 1px solid var(--color-border); }
+.my-diet__food-name { font-size: var(--font-size-md); font-weight: 500; }

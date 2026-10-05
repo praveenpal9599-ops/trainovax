@@ -1,0 +1,67 @@
+/* Workout / diet template library (pages/shared/TemplatesPage.jsx) */
+
+/* Search + filters: stacked, in a row from sm */
+.templates-page__filters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+/* Card grid: 1 → 2 (sm) → 3 (lg) */
+.templates-page__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+}
+
+@container content (min-width: 600px) {
+  .templates-page__filters { flex-direction: row; }
+  .templates-page__search { max-width: 320px; }
+  .templates-page__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@container content (min-width: 1200px) {
+  .templates-page__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* ---------- Template card ---------- */
+.templates-page__card { height: 100%; display: flex; flex-direction: column; overflow: hidden; }
+
+/* Clickable body (opens the template) */
+.templates-page__card-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: var(--space-5);
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.templates-page__card-main:hover { background: var(--color-primary-tint); }
+.templates-page__card-main:focus-visible { outline: 2px solid var(--color-primary); outline-offset: -2px; }
+
+.templates-page__chips { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-3); }
+.templates-page__name { font-size: var(--font-size-base); font-weight: 600; line-height: 1.5; margin-bottom: var(--space-1); }
+.templates-page__desc { font-size: var(--font-size-md); color: var(--color-text-muted); margin-bottom: var(--space-4); }
+
+.templates-page__metrics { display: flex; gap: var(--space-6); margin-top: auto; }
+.templates-page__metric-value { font-size: 1.1rem; font-weight: 700; line-height: 1.6; }
+.templates-page__metric-label { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+
+/* Footer: type · times assigned, assign button, menu */
+.templates-page__card-foot {
+  display: flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+.templates-page__card-meta { flex: 1; min-width: 0; font-size: var(--font-size-sm); color: var(--color-text-muted); }
+
+.templates-page__pagination { display: flex; justify-content: center; margin-top: var(--space-6); }

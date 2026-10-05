@@ -1,0 +1,30 @@
+/* Top-bar notification bell + popover (features/notifications/NotificationBell.jsx) */
+.notif-bell__paper.MuiPaper-root { width: 380px; max-width: calc(100vw - 24px); margin-top: var(--space-2); }
+.notif-bell__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+}
+.notif-bell__heading { font-size: var(--font-size-base); font-weight: 600; line-height: 1.75; }
+.notif-bell__loading { padding: var(--space-4); }
+.notif-bell__list.MuiList-root { max-height: 420px; overflow: auto; }
+
+/* One notification */
+.notif-bell__item.MuiListItemButton-root { align-items: flex-start; gap: var(--space-3); padding-block: 10px; border-radius: 0; }
+.notif-bell__item--unread.MuiListItemButton-root:not(:hover) { background: rgba(21, 101, 192, 0.04); }
+.notif-bell__icon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+.notif-bell__icon .MuiSvgIcon-root { font-size: 18px; }
+.notif-bell__title { font-size: var(--font-size-md); font-weight: 500; }
+.notif-bell__item--unread .notif-bell__title { font-weight: 700; }
+.notif-bell__body { font-size: var(--font-size-sm); line-height: 1.66; color: var(--color-text-muted); }
+.notif-bell__time { display: block; font-size: var(--font-size-sm); color: var(--color-text-disabled); }
+.notif-bell__dot { width: 8px; height: 8px; margin-top: var(--space-2); border-radius: 50%; background: var(--color-primary); flex-shrink: 0; }
+.notif-bell__foot { padding: var(--space-2); text-align: center; }
